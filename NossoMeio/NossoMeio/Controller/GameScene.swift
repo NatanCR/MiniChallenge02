@@ -8,31 +8,54 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-struct physicsCategory {
-    static let player : UInt32 = 0x1 << 1
-    static let ground : UInt32 = 0x1 << 2
-    static let stone : UInt32 = 0x1 << 3
-}
-
 class GameScene: SKScene {
     
     var ground = SKSpriteNode()
     var player = SKSpriteNode()
     
+    override func sceneDidLoad() {
+        
+        do {
+            ground = SKSpriteNode(imageNamed: "ground")
+            ground.size = CGSize(width: 880, height: 150)
+            ground.setScale(0.5)
+            ground.position = CGPoint(x: self.frame.width / 2, y: 0 + ground.frame.height / 2)
+            
+            let body = SKPhysicsBody(rectangleOf: ground.size)
+            body.affectedByGravity = true
+            body.allowsRotation = false
+            body.isDynamic = false
+            
+            ground.physicsBody = body
+            
+            self.addChild(ground)
+            
+            createStones()
+        }
+        
+        do {
+            player = SKSpriteNode(imageNamed: "Run (1)")
+            player.size = CGSize(width: 100, height: 100)
+            player.position = CGPoint(x: self.frame.width / 2 - 50 , y: ground.frame.height)
+            
+            let body = SKPhysicsBody(rectangleOf: player.size)
+            body.affectedByGravity = true
+            body.allowsRotation = false
+            
+            player.physicsBody = body
+            
+            self.addChild(player)
+        }
+        
+    }
+    
     override func didMove(to view: SKView) {
-        ground = SKSpriteNode(imageNamed: "ground")
-        ground.size = CGSize(width: 880, height: 150)
-        ground.setScale(0.5)
-        ground.position = CGPoint(x: self.frame.width / 2, y: 0 + ground.frame.height / 2)
-        self.addChild(ground)
         
-        player = SKSpriteNode(imageNamed: "Run (1)")
-        player.size = CGSize(width: 100, height: 100)
-        player.position = CGPoint(x: self.frame.width / 2 - 20 , y: 30 + ground.frame.height)
-        self.addChild(player)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            player.physicsBody?.applyImpulse(.init(dx: player.size.width, dy: player.size.height * 2))
         player.run(.repeatForever(.animate(with: .init(format: "Run (%@)", frameCount: 1...8), timePerFrame: 0.1)))
-        
-        createStones()
     }
     
     func createStones() {
