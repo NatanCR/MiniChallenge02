@@ -8,26 +8,15 @@
 import SpriteKit
 
 class MainVC: SKScene {
-
-    var newGameButton: SKSpriteNode!
-    
-    override func didMove(to view: SKView){
-        newGameButton = self.childNode(withName: "newGameButton") as! SKSpriteNode
-    }
-
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //para saber onde esta tocando na tela
         let touch = touches.first
         
         if let location = touch?.location(in: self) {
             let nodesArray = self.nodes(at: location)
             
-            if nodesArray.first?.name == "newGameButton" {
-                //fará a transição para cena do jogo
+            if nodesArray.first?.name == "playButton" {
                 let transition = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = GameScene(size: self.size)
-                //realiza a transition descrita com as definições acima
+                let gameScene = TutorialScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
