@@ -16,8 +16,8 @@ class MainVC: SKScene {
             
             if nodesArray.first?.name == "playButton" {
                 let transition = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = TutorialScene(size: self.size)
-                self.view?.presentScene(gameScene, transition: transition)
+                let tutorialScene = TutorialScene(size: self.size)
+                self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
     }
