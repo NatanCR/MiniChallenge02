@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C9E25D9292818A7007B9FB5 /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */; };
 		4E05CB9629292ED7008E017A /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05CB9529292ED7008E017A /* StartButton.swift */; };
+		4E05CB99292ACA65008E017A /* TrashObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05CB98292ACA65008E017A /* TrashObject.swift */; };
 		4EA63F87291ECE4100872D40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63F86291ECE4100872D40 /* AppDelegate.swift */; };
 		4EA63F89291ECE4200872D40 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F88291ECE4200872D40 /* GameScene.sks */; };
 		4EA63F8B291ECE4200872D40 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F8A291ECE4200872D40 /* Actions.sks */; };
@@ -19,12 +20,12 @@
 		4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */; };
 		4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63FA3291ED1BE00872D40 /* MainScene.sks */; };
 		4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA5291ED64000872D40 /* MainVC.swift */; };
-		4EA63FAA2922B71F00872D40 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA92922B71F00872D40 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
 		4E05CB9529292ED7008E017A /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		4E05CB98292ACA65008E017A /* TrashObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashObject.swift; sourceTree = "<group>"; };
 		4EA63F83291ECE4100872D40 /* NossoMeio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NossoMeio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA63F86291ECE4100872D40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EA63F88291ECE4200872D40 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		4EA63F96291ECE4400872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		4EA63FA92922B71F00872D40 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +56,14 @@
 				4E05CB9529292ED7008E017A /* StartButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4E05CB97292ACA46008E017A /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4E05CB98292ACA65008E017A /* TrashObject.swift */,
+			);
+			path = GameObjects;
 			sourceTree = "<group>";
 		};
 		4EA63F7A291ECE4100872D40 = {
@@ -78,46 +86,38 @@
 			isa = PBXGroup;
 			children = (
 				4EA63FA2291ECF4700872D40 /* Resources */,
-				4EA63FA0291ECF1700872D40 /* Model */,
-				4EA63F9F291ECF0100872D40 /* View */,
-				4EA63FA1291ECF1E00872D40 /* Controller */,
+				4EA63F9F291ECF0100872D40 /* Scenes */,
+				4EA63FA1291ECF1E00872D40 /* Controllers */,
+				4E05CB9429292EC9008E017A /* Buttons */,
+				4E05CB97292ACA46008E017A /* GameObjects */,
 			);
 			path = NossoMeio;
 			sourceTree = "<group>";
 		};
-		4EA63F9F291ECF0100872D40 /* View */ = {
+		4EA63F9F291ECF0100872D40 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4EA63F8A291ECE4200872D40 /* Actions.sks */,
 				4EA63F88291ECE4200872D40 /* GameScene.sks */,
 				4EA63FA3291ED1BE00872D40 /* MainScene.sks */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4EA63FA0291ECF1700872D40 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4EA63FA92922B71F00872D40 /* Model.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4EA63FA1291ECF1E00872D40 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				4E05CB9429292EC9008E017A /* Buttons */,
-				4EA63F8E291ECE4200872D40 /* GameViewController.swift */,
-				4EA63FA5291ED64000872D40 /* MainVC.swift */,
 				4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */,
 				4EA63F8C291ECE4200872D40 /* GameScene.swift */,
 			);
-			path = Controller;
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4EA63FA1291ECF1E00872D40 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EA63F8E291ECE4200872D40 /* GameViewController.swift */,
+				4EA63FA5291ED64000872D40 /* MainVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		4EA63FA2291ECF4700872D40 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EA63F8A291ECE4200872D40 /* Actions.sks */,
 				4EA63F86291ECE4100872D40 /* AppDelegate.swift */,
 				4EA63F90291ECE4200872D40 /* Main.storyboard */,
 				4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */,
@@ -200,13 +200,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EA63FAA2922B71F00872D40 /* Model.swift in Sources */,
 				4EA63F8D291ECE4200872D40 /* GameScene.swift in Sources */,
 				4EA63F8F291ECE4200872D40 /* GameViewController.swift in Sources */,
 				4EA63F87291ECE4100872D40 /* AppDelegate.swift in Sources */,
 				4C9E25D9292818A7007B9FB5 /* TutorialScene.swift in Sources */,
 				4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */,
 				4E05CB9629292ED7008E017A /* StartButton.swift in Sources */,
+				4E05CB99292ACA65008E017A /* TrashObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
