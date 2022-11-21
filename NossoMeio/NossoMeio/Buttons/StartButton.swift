@@ -11,19 +11,16 @@ import SpriteKit
 class StartButton: SKNode {
     
     var image: SKSpriteNode?
-    var label: SKLabelNode?
     var action: (() -> Void)?
     
-    init(image: SKSpriteNode, label: SKLabelNode, action: @escaping () -> Void) {
+    init(image: SKSpriteNode, action: @escaping () -> Void) {
         self.image = image
-        self.label = label
         self.action = action
         super.init()
         //pode receber interação com o usuário
         self.isUserInteractionEnabled = true
         
         self.addChild(image)
-        self.addChild(label)
     }
     
     //inicializador para ajudar a criar o botao pela cena

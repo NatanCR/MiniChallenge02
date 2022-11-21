@@ -30,18 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         createTrash()
-        createObject()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        createJunk()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -61,7 +50,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         trash.anchorPoint = CGPoint(x: 0, y: 0)
         trash.position = CGPoint(x: 330, y: 180)
         trash.size = CGSize(width: 200, height: 200)
-        trash.name = "trash"
         
         body = SKPhysicsBody(rectangleOf: trash.size)
         body.affectedByGravity = false
@@ -74,9 +62,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(trash)
     }
     
-    func createObject() {
+    func createJunk() {
         
-        let image = SKSpriteNode(imageNamed: "Tree")
+        let image = SKSpriteNode(imageNamed: "maca")
         let junk = JunkObject(image: image, width: 70, height: 70)
         junk.color = .red
         junk.position = .init(x: 330, y: 70)
@@ -93,6 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             junk.position = CGPoint(x: 330, y: 70)
         }
         
+        junk.setTypeJunk(junkType: .plastic, <#T##junkType: String##String#>)
         
         body = SKPhysicsBody(rectangleOf: junk.size)
         body.affectedByGravity = false

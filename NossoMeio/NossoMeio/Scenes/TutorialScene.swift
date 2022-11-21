@@ -22,14 +22,9 @@ class TutorialScene: SKScene {
     }
     
     func createStartButton() {
-        let image = SKSpriteNode(color: .red, size: .init(width: 200, height: 80))
-        let label = SKLabelNode(text: "Começar")
+        let image = SKSpriteNode(imageNamed: "comecar")
         
-        label.fontColor = .black
-        label.fontSize = 40
-        label.verticalAlignmentMode = .center
-        
-        let button = StartButton(image: image, label: label) {
+        let button = StartButton(image: image) {
             let transition = SKTransition.moveIn(with: .right, duration: 0.2)
             let tutorialScene = GameScene(size: self.size)
             self.view?.presentScene(tutorialScene, transition: transition)
