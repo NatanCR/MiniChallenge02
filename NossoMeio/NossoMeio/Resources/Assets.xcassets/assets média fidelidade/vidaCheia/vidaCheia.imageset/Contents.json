@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "image 7.png",
+      "filename" : "vidaCheia.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "image 7@2x.png",
+      "filename" : "vidaCheia@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "image 7@3x.png",
+      "filename" : "vidaCheia@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
