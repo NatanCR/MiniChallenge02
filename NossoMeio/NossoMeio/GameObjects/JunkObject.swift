@@ -20,7 +20,7 @@ class JunkObject: SKSpriteNode {
         case plastic, organic, glass, metal, paper
     }
     
-    init(image: SKSpriteNode, width: Double, height: Double, type: JunkType) {
+    init(image: SKSpriteNode, width: Double, height: Double, type: JunkType, position: CGPoint) {
         self.junkType = type
         super.init(texture: nil, color: .clear, size: CGSize(width: width, height: height))
         self.addChild(image)
