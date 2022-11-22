@@ -13,8 +13,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint()
     var body = SKPhysicsBody()
     
-    let objectCategory: UInt32 = 0x1 << 0 //1
-    let trashCategory: UInt32 = 0x1 << 1 //2   //0x1 << 2 // 4
+    let trashCategory: UInt32 = 1
+    let plasticCategory: UInt32 = 2
+    let organicCategory: UInt32 = 4
+    let glassCategory: UInt32 = 8
+    let metalCategory: UInt32 = 16
+    let paperCategory: UInt32 = 32
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -30,14 +34,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         createTrash()
-        createJunk()
+        createPlasticJunk()
+        createOrganicJunk()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let contacting: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
-        if collision == trashCategory | objectCategory {
-            print("CONTATO CHAMA O VAR")
+        if contacting == trashCategory | plasticCategory {
+            print("CONTATO COM PLASTICO")
+            //mudanca de estado entra aqui
+        } else if contacting == trashCategory | organicCategory {
+            print("CONTATO COM ORGANICO")
+            //mudanca de estado entra aqui
         }
     }
     
@@ -46,29 +55,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createTrash() {
-        let trash = SKSpriteNode(color: .red, size: .init(width: 200, height: 100))
-        trash.anchorPoint = CGPoint(x: 0, y: 0)
-        trash.position = CGPoint(x: 330, y: 180)
+        let trash = SKSpriteNode(imageNamed: "lixeira")
+        trash.position = CGPoint(x: 385, y: 240)
         trash.size = CGSize(width: 200, height: 200)
-        
-        body = SKPhysicsBody(rectangleOf: trash.size)
-        body.affectedByGravity = false
-        body.allowsRotation = false
-        body.isDynamic = false
-        body.categoryBitMask = trashCategory
-        
-        trash.physicsBody = body
+        trash.zPosition = -1
+        trash.physicsBody = createTrashPhysicsBody(trash: trash)
         
         self.addChild(trash)
     }
     
-    func createJunk() {
-        
-        let image = SKSpriteNode(imageNamed: "maca")
-        let junk = JunkObject(image: image, width: 70, height: 70)
-        junk.color = .red
+    func createPlasticJunk() {
+        let image = SKSpriteNode(imageNamed: "garrafinha")
+        let junk = JunkObject(image: image, width: 50, height: 50, type: .plastic)
         junk.position = .init(x: 330, y: 70)
-        junk.physicsBody?.affectedByGravity = true
+        junk.zPosition = 1
+        
+        junk.setActionMoved(action: .moved) { touches in
+            for touch in touches {
+                self.touchLocation = touch.location(in: self)
+                junk.position = self.touchLocation
+            }
+        }
+        
+        junk.physicsBody = createJunkPhysicsBody(junk: junk, type: .plastic)
+        self.addChild(junk)
+    }
+    
+    func createOrganicJunk() {
+        let image = SKSpriteNode(imageNamed: "papel")
+        let junk = JunkObject(image: image, width: 2, height: 2, type: .organic)
+        junk.position = .init(x: 460, y: 70)
+        junk.zPosition = 1
         
         junk.setActionMoved(action: .moved) { touches in
             for touch in touches {
@@ -78,20 +95,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         junk.setActionMoved(action: .endMoved) { touches in
-            junk.position = CGPoint(x: 330, y: 70)
+            junk.position = CGPoint(x: 460, y: 70)
         }
         
-        junk.setTypeJunk(junkType: .plastic, <#T##junkType: String##String#>)
-        
-        body = SKPhysicsBody(rectangleOf: junk.size)
+        junk.physicsBody = createJunkPhysicsBody(junk: junk, type: .organic)
+        self.addChild(junk)
+    }
+    
+    func createJunkPhysicsBody(junk: SKSpriteNode, type: JunkObject.JunkType) -> SKPhysicsBody {
+        body = SKPhysicsBody(rectangleOf: junk.size) //corpo a partir de uma forma
         body.affectedByGravity = false
         body.allowsRotation = false
+        body.isDynamic = true
+        
+        switch type {
+        case .plastic:
+            body.categoryBitMask = plasticCategory
+        case .organic:
+            body.categoryBitMask = organicCategory
+        case .glass:
+            body.categoryBitMask = glassCategory
+        case .metal:
+            body.categoryBitMask = metalCategory
+        case .paper:
+            body.categoryBitMask = paperCategory
+        }
+        
         body.contactTestBitMask = trashCategory
-        body.categoryBitMask = objectCategory
+        body.collisionBitMask = 0
         
-        junk.physicsBody = body
-        junk.physicsBody?.collisionBitMask = 0
+        return body
+    }
+    
+    func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
+        body = SKPhysicsBody(rectangleOf: trash.size)
+        body.affectedByGravity = false
+        body.allowsRotation = false
+        body.isDynamic = false
+        body.contactTestBitMask = plasticCategory | organicCategory | metalCategory | glassCategory | paperCategory
+        body.categoryBitMask = trashCategory
+        body.collisionBitMask = 0
         
-        self.addChild(junk)
+        return body
     }
 }

@@ -10,7 +10,7 @@ class JunkObject: SKSpriteNode {
     
     private var actionMoved: ((_ touches: Set<UITouch>) -> Void)?
     private var actionEndMoved: ((_ touches: Set<UITouch>) -> Void)?
-    private var junkType: String?
+    private var junkType: JunkType
     
     enum ActionType {
         case moved, endMoved
@@ -20,7 +20,8 @@ class JunkObject: SKSpriteNode {
         case plastic, organic, glass, metal, paper
     }
     
-    init(image: SKSpriteNode, width: Double, height: Double) {
+    init(image: SKSpriteNode, width: Double, height: Double, type: JunkType) {
+        self.junkType = type
         super.init(texture: nil, color: .clear, size: CGSize(width: width, height: height))
         self.addChild(image)
         self.isUserInteractionEnabled = true
@@ -39,19 +40,8 @@ class JunkObject: SKSpriteNode {
         }
     }
     
-    func setTypeJunk(junkType type: JunkType, _ junkType: String) {
-        switch type {
-        case .plastic:
-            self.junkType = junkType
-        case .organic:
-            self.junkType = junkType
-        case .glass:
-            self.junkType = junkType
-        case .metal:
-            self.junkType = junkType
-        case .paper:
-            self.junkType = junkType
-        }
+    func setTypeJunk(junkType type: JunkType) {
+        self.junkType = type
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
