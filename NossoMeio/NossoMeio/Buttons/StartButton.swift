@@ -19,7 +19,6 @@ class StartButton: SKNode {
         super.init()
         //pode receber interação com o usuário
         self.isUserInteractionEnabled = true
-        
         self.addChild(image)
     }
     
