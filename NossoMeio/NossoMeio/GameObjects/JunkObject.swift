@@ -24,8 +24,6 @@ class JunkObject: SKNode {
     enum JunkType {
         case plastic, organic, glass, metal, paper
     }
-
-
     
     init(image: SKSpriteNode, size: CGSize, positionPoint: CGPoint, junkType: JunkType, body: SKPhysicsBody){
         self.image = image
@@ -61,6 +59,11 @@ class JunkObject: SKNode {
 
     func setTypeJunk(junkType type: JunkType) {
         self.junkType = type
+    }
+    
+    func setPosition(positionPoint point: CGPoint) {
+//        self.positionPoint = point
+        self.junk.position = point
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
