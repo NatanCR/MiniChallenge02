@@ -37,8 +37,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         createTrash()
-        createPlasticJunk()
-        createOrganicJunk()
+//        createPlasticJunk()
+//        createOrganicJunk()
+        
+        createFinalJunkArray(plasticArray: createPlasticJunk(), organicArray: createOrganicJunk())
+                
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -60,6 +63,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("acabou contato")
     }
     
+    func createFinalJunkArray(plasticArray: [JunkObject], organicArray: [JunkObject]) {
+        var finalJunkArray = [JunkObject]()
+        
+        var newPlasticJunkArray = plasticArray
+        var newOrganicJunkArray = organicArray
+        
+        var tempPlasticArray = plasticArray
+        
+        for i in 0..<4 {
+            newPlasticJunkArray.shuffle()
+            finalJunkArray.append(newPlasticJunkArray[i])
+            
+            for j in 0...finalJunkArray.count {
+                if finalJunkArray[j] != newPlasticJunkArray[i] {
+                    finalJunkArray.append(newPlasticJunkArray[i])
+                }
+            }
+        }
+        
+        print("ARRAY COM PLASTICO \(finalJunkArray)\n\n")
+        
+        for i in 0..<3 {
+            newOrganicJunkArray.shuffle()
+            finalJunkArray.append(newOrganicJunkArray[i])
+            newOrganicJunkArray.remove(at: i)
+        }
+        
+        print("ARRAY COM PLASTICO E ORGANICO ?? \(finalJunkArray)\n\n")
+        
+        for i in 0...finalJunkArray.count {
+            self.addChild(finalJunkArray[i])
+        }
+    }
+    
     func createTrash() {
         let trash = SKSpriteNode(imageNamed: "lixeira")
         trash.position = CGPoint(x: 385, y: 240)
@@ -70,16 +107,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(trash)
     }
     
-    func createPlasticJunk() {
-        let arrayImagePlastic = ["garrafinha", "sacola", "copo"]
+    func createPlasticJunk() -> [JunkObject] {
+        let arrayImagePlastic = ["garrafinha", "sacola", "copo", "frasco"]
         var randomPositions : CGPoint
         var plasticJunk = [JunkObject]()
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-        for i in 0..<3 {
+        for i in 0..<4 {
             repeat {
-                randomRange = Int.random(in: 0..<3)
+                randomRange = Int.random(in: 0..<4)
                 
             } while positions_x[randomRange] != nil
             
@@ -87,6 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             randomPositions = CGPoint(x: x_pointsForPlastic[randomRange], y: 70)
             
             let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImagePlastic[i]), size: CGSize(width: 50, height: 50), positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
+            
             plasticJunk.append(junkObj)
             
             plasticJunk[i].setActionMoved(action: .moved) { touches in
@@ -98,20 +136,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
-            self.addChild(plasticJunk[i])
+            plasticJunk[i].setActionMoved(action: .endMoved) { touches in
+                plasticJunk[i].position = CGPoint(x: 0, y: 0)
+            }
+            
+//            self.addChild(plasticJunk[i])
         }
+        
+        return plasticJunk
     }
     
-    func createOrganicJunk() {
-        let arrayImageOrganic = ["papel", "maca"]
+    func createOrganicJunk() -> [JunkObject] {
+        let arrayImageOrganic = ["papel", "maca", "pilha"]
         var randomPositions : CGPoint
         var organicJunk = [JunkObject]()
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-        for i in 0..<2 {
+        for i in 0..<3 {
             repeat {
-                randomRange = Int.random(in: 0..<2)
+                randomRange = Int.random(in: 0..<3)
                 
             } while positions_x[randomRange] != nil
             
@@ -133,29 +177,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             organicJunk[i].setActionMoved(action: .endMoved) { touches in
                 organicJunk[i].position = CGPoint(x: 0, y: 0)
             }
-            self.addChild(organicJunk[i])
+//            self.addChild(organicJunk[i])
         }
         
-        
-        
-//        let imageNode = SKSpriteNode(imageNamed: "papel")
-//        let junkOrganic = JunkObject(image: imageNode, size: CGSize(width: 50, height: 50), positionPoint: points[3], junkType: .organic, body: createJunkPhysicsBody(type: .organic))
-//        junkOrganic.zPosition = 1
-//
-//        junkOrganic.setActionMoved(action: .moved) { touches in
-//            for touch in touches {
-//                self.touchLocation = touch.location(in: self)
-//                self.touchLocation.x -= junkOrganic.positionPoint.x
-//                self.touchLocation.y -= junkOrganic.positionPoint.y
-//                junkOrganic.position = self.touchLocation
-//            }
-//        }
-        
-//        junkOrganic.setActionMoved(action: .endMoved) { touches in
-//            junkOrganic.position = CGPoint(x: 0, y: 0)
-//        }
-        
-       
+        return organicJunk
     }
     
     func createJunkPhysicsBody(type: JunkObject.JunkType) -> SKPhysicsBody {
