@@ -13,6 +13,7 @@ class GameCreators: SKNode {
     private var touchLocation = CGPoint()
     private var body = SKPhysicsBody()
     private let x_points = [85, 185, 285, 385, 485, 585, 685]
+    private var heartArray = [HeartObject]()
     let trashCategory: UInt32 = 1
     let plasticCategory: UInt32 = 2
     let organicCategory: UInt32 = 4
@@ -20,7 +21,31 @@ class GameCreators: SKNode {
     let metalCategory: UInt32 = 16
     let paperCategory: UInt32 = 32
     var junkCounter = 0
-    var key = false
+    var isActive = false
+    var heartCounter = 0
+    
+    func createHearts() {
+        for i in 0...2 {
+            let heartObj = HeartObject()
+            heartArray.append(heartObj)
+
+            heartArray[i].name = "coracao\(i)"
+            heartArray[i].setPosition(heart: 750-(CGFloat((2-i))*35))
+            heartCounter += 1
+            self.addChild(heartArray[i])
+        }
+    }
+    
+    func changeHearts() {
+        let changeTexture = SKAction.setTexture(SKTexture(imageNamed: "copo"))
+        for i in 0...2 {
+            if heartArray[i].isActive == true {
+                heartArray[i].setTexture(heart: changeTexture)
+                heartArray[i].isActive = false
+                break
+            }
+        }
+    }
     
     func createFinalJunkArray(_ plasticJunkArray: [JunkObject], _ organicJunkArray: [JunkObject]) {
         var finalJunkArray = [JunkObject]()

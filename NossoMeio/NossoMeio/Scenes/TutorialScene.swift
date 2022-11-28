@@ -24,7 +24,7 @@ class TutorialScene: SKScene {
         let image = SKSpriteNode(imageNamed: "comecar")
         
         let button = StartButton(image: image) {
-            let transition = SKTransition.moveIn(with: .right, duration: 0.2)
+            let transition = SKTransition.reveal(with: .left, duration: 0.3)
             let gameScene = GameScene(size: self.size)
             self.view?.presentScene(gameScene, transition: transition)
         }

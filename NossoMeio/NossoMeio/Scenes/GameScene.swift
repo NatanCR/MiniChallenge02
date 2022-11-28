@@ -9,7 +9,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-    private var healthHeart = LifeObject()
+    private var healthHeart = HeartObject()
     private var gameCreators = GameCreators()
     
     override func sceneDidLoad() {
@@ -27,7 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
-        addChild(healthHeart)
+        gameCreators.createHearts()
+//        addChild(healthHeart)
         addChild(gameCreators)
     }
     
@@ -44,14 +45,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.junkCounter == 0 {
-                    gameCreators.key = true
-                    winGame(key: gameCreators.key)
+                    gameCreators.isActive = true
+                    winGame(key: gameCreators.isActive)
                 }
             }
             
             
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
             print("CONTATO COM ORGANICO")
+            gameCreators.changeHearts()
+            gameCreators.heartCounter -= 1
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
+                if gameCreators.heartCounter == 0 {
+                    winGame(key: true)
+                }
+            }
         }
     }
     
@@ -61,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func winGame(key: Bool) {
         if key == true {
-            let transition = SKTransition.moveIn(with: .right, duration: 0.2)
+            let transition = SKTransition.crossFade(withDuration: 0.2)
             let winScene = WinScene(size: self.size)
             self.view?.presentScene(winScene, transition: transition)
         }
