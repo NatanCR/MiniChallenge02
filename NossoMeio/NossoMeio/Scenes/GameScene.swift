@@ -39,10 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         createTrash()
-        //        createPlasticJunk()
-        //        createOrganicJunk()
-        
-        createFinalJunkArray(plasticArray: createPlasticJunk(), organicArray: createOrganicJunk())
+        createFinalJunkArray(createPlasticJunk(), createOrganicJunk())
         
     }
     
@@ -65,10 +62,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("acabou contato")
     }
     
-    func createFinalJunkArray(plasticArray: [JunkObject], organicArray: [JunkObject]) {
+    func createFinalJunkArray(_ plasticJunkArray: [JunkObject], _ organicJunkArray: [JunkObject]) {
         var finalJunkArray = [JunkObject]()
-        var newPlasticJunkArray = plasticArray
-        var newOrganicJunkArray = organicArray
+        var newPlasticJunkArray = plasticJunkArray
+        var newOrganicJunkArray = organicJunkArray
         
         var randomPositions = CGPoint()
         var positions_x = [Int: Int]()
@@ -106,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 finalJunkArray[i].setActionMoved(action: .endMoved) { touches in
                     finalJunkArray[i].position = CGPoint(x: 0, y: 0)
                 }
+                
                 self.addChild(finalJunkArray[i])
             }
     }

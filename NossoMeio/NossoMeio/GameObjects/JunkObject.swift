@@ -62,7 +62,6 @@ class JunkObject: SKNode {
     }
     
     func setPosition(positionPoint point: CGPoint) {
-//        self.positionPoint = point
         self.junk.position = point
     }
 
