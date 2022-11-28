@@ -13,12 +13,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchLocation = CGPoint()
     var body = SKPhysicsBody()
     
+    
     let trashCategory: UInt32 = 1
     let plasticCategory: UInt32 = 2
     let organicCategory: UInt32 = 4
     let glassCategory: UInt32 = 8
     let metalCategory: UInt32 = 16
     let paperCategory: UInt32 = 32
+    
+    var heartsArray = ["vidaCheia", "vidaCheia", "vidaCheia"]
     
     let points = [
         CGPoint(x: 385, y: 70),
@@ -37,18 +40,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
+        //         var heartsArray: [SKSpriteNode] = [SKSpriteNode]()
+        //
+        //        let heart = SKSpriteNode(imageNamed: "vidaCheia")
+        //
+        //        heartsArray.append(heart)
+        //
+        //
+        
+        
         //posição da ancora na tela
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        //limite de gravidade na tela
-        //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         createTrash()
         createPlasticJunk()
         createOrganicJunk()
+        threeHearts()
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        
         let contacting: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if contacting == trashCategory | plasticCategory {
@@ -60,14 +74,72 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         } else if contacting == trashCategory | organicCategory {
+            
             print("CONTATO COM ORGANICO")
-            //mudanca de estado entra aqui
-        }
+            //
+            //    loseLife(count: 3)
+            
+            
+            
+        } //mudanca de estado entra aqui
     }
+    
     
     func didEnd(_ contact: SKPhysicsContact) {
         print("acabou contato")
     }
+    
+    
+    
+    func threeHearts() {
+        var heartContainer = SKSpriteNode()
+        
+        heartContainer = SKSpriteNode(color: UIColor.purple, size: CGSize(width: 180, height: 60))
+        heartContainer.position = CGPoint(x: 700, y: 320)
+        heartContainer.zPosition = 5
+        
+        self.addChild(heartContainer)
+        
+        let lifes = 3
+        for index in 1...lifes {
+            let heart = SKSpriteNode(imageNamed: "vidaCheia")
+            heart.size = CGSize(width: 40, height: 40)
+            let xPosition = heart.size.width * CGFloat(index - 2)
+            
+            heart.position = CGPoint(x: xPosition, y: 0)
+            
+           heartContainer.addChild(heart)
+            
+        }
+    }
+    
+    //array das images
+    
+    public func loseLife() {
+        var heartsArray: [SKSpriteNode] = [SKSpriteNode]()
+        
+        heartsArray = [SKSpriteNode(imageNamed: "vidaCheia")]
+        
+        //     var heartsArray: [SKSpriteNode] = [SKSpriteNode]()
+        let heart : SKSpriteNode!
+        //      var heartsArray
+        
+        heart = SKSpriteNode(imageNamed: "vidaCheia")
+        heartsArray.append(heart)
+        
+        
+        let lastElementIndex = heartsArray.count - 1
+        print(heartsArray.count) //um elemento no array
+        if heartsArray.indices.contains(lastElementIndex) {
+            let lastHeart = heartsArray[lastElementIndex]
+            lastHeart.removeFromParent()
+            //print()
+            heartsArray.remove(at: lastElementIndex)
+            
+        }
+    }
+    
+    
     
     func createTrash() {
         let trash = SKSpriteNode(imageNamed: "lixeira")
@@ -85,20 +157,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let imageNode1 = SKSpriteNode(imageNamed: "copo")
         let imageNode2 = SKSpriteNode(imageNamed: "garrafinha")
         
-//        for i in arrayImagePlastic {
-//            imageNode = SKSpriteNode(imageNamed: i)
-//        }
+        //        for i in arrayImagePlastic {
+        //            imageNode = SKSpriteNode(imageNamed: i)
+        //        }
         
         let plasticJunk = [JunkObject(image: imageNode, width: 50, height: 50, type: .plastic, position: CGPoint(x: 385, y: 70)),
                            JunkObject(image: imageNode1, width: 50, height: 50, type: .plastic, position: CGPoint(x: 285, y: 70)),
                            JunkObject(image: imageNode2, width: 50, height: 50, type: .plastic, position: CGPoint(x: 185, y: 70))]
         
-//        for point in points [1..<points.count] {
-//            
-//        }
+        //        for point in points [1..<points.count] {
+        //
+        //        }
         
-//        plasticJunk.position = .init(x: 85, y: 70)
-//        plasticJunk.zPosition = 1
+        //        plasticJunk.position = .init(x: 85, y: 70)
+        //        plasticJunk.zPosition = 1
         
         plasticJunk[0].setActionMoved(action: .moved) { touches in
             for touch in touches {
@@ -125,15 +197,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(plasticJunk[0])
         self.addChild(plasticJunk[1])
         self.addChild(plasticJunk[2])
-
-       
+        
+        
     }
     
     func createOrganicJunk() {
         let imageOrganic = ["papel", "maca"]
         let image = SKSpriteNode(imageNamed: "papel")
         let junk = JunkObject(image: image, width: 2, height: 2, type: .organic, position: points[3])
-//        junk.position = .init(x: 460, y: 70)
+        //        junk.position = .init(x: 460, y: 70)
         junk.zPosition = 1
         
         junk.setActionMoved(action: .moved) { touches in
