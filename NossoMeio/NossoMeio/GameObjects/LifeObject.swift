@@ -8,21 +8,24 @@
 import SpriteKit
 
 class LifeObject: SKNode {
-    private var image: SKSpriteNode
+    private var heart: SKSpriteNode
     
     override init() {
-        self.image = SKSpriteNode(imageNamed: "vidaCheia")
+        self.heart = SKSpriteNode(imageNamed: "vidaCheia")
         super.init()
+        createHeart()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     func createHeart() {
-        self.addChild(image)
-        
-        image.position
+        heart.anchorPoint = CGPoint(x: 0, y: 0)
+        heart.position = CGPoint(x: 685, y: 300)
+        heart.size = CGSize(width: 50, height: 50)
+        heart.zPosition = 3
+        self.addChild(heart)
     }
     
 }

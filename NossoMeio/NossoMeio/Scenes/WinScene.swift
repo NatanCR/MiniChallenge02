@@ -1,26 +1,22 @@
 //
-//  TutorialScene.swift
+//  WinScene.swift
 //  NossoMeio
 //
-//  Created by rebeca rodrigues on 18/11/22.
+//  Created by Natan Rodrigues on 28/11/22.
 //
 
 import SpriteKit
 
-class TutorialScene: SKScene {
-    override func didMove(to view: SKView) {
-        
-    }
-    
+class WinScene: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.backgroundColor = SKColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
-        createStartButton()
+        createNewGameButton()
     }
     
-    func createStartButton() {
+    func createNewGameButton() {
         let image = SKSpriteNode(imageNamed: "comecar")
         
         let button = StartButton(image: image) {
@@ -29,10 +25,8 @@ class TutorialScene: SKScene {
             self.view?.presentScene(gameScene, transition: transition)
         }
         
-        //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 405, y: 185)
         
         addChild(button)
     }
-    
 }
