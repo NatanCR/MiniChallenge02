@@ -9,7 +9,6 @@ import SpriteKit
 class JunkObject: SKNode {
     
     private var image: SKSpriteNode
-    var size: CGSize
     var positionPoint: CGPoint
     var junk: SKSpriteNode
     var body: SKPhysicsBody
@@ -25,9 +24,8 @@ class JunkObject: SKNode {
         case plastic, organic, glass, metal, paper
     }
     
-    init(image: SKSpriteNode, size: CGSize, positionPoint: CGPoint, junkType: JunkType, body: SKPhysicsBody){
+    init(image: SKSpriteNode, positionPoint: CGPoint, junkType: JunkType, body: SKPhysicsBody){
         self.image = image
-        self.size = size
         self.positionPoint = positionPoint
         self.junkType = junkType
         self.junk = SKSpriteNode()
@@ -37,13 +35,12 @@ class JunkObject: SKNode {
         
         self.junk.addChild(image)
         self.junk.position = positionPoint
-        self.junk.size = size
+        self.junk.size = CGSize(width: 50, height: 50)
         self.junk.physicsBody = body
         self.addChild(self.junk)
     }
     
     required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
         fatalError("NSCoder not supported")
     }
     

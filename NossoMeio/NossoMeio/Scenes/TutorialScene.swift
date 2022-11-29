@@ -22,13 +22,16 @@ class TutorialScene: SKScene {
     
     func createStartButton() {
         let image = SKSpriteNode(imageNamed: "comecar")
+        let scale = SKAction.scale(to: 0.4, duration: 0.1)
         
         let button = StartButton(image: image) {
+            self.run(scale)
+        } actionEnded: {
             let transition = SKTransition.reveal(with: .left, duration: 0.3)
             let gameScene = GameScene(size: self.size)
             self.view?.presentScene(gameScene, transition: transition)
         }
-        
+       
         //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 405, y: 185)
         

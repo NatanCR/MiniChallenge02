@@ -18,8 +18,11 @@ class WinScene: SKScene {
     
     func createNewGameButton() {
         let image = SKSpriteNode(imageNamed: "comecar")
+        let scale = SKAction.scale(to: 0.4, duration: 0.1)
         
         let button = StartButton(image: image) {
+            self.run(scale)
+        } actionEnded: {
             let transition = SKTransition.moveIn(with: .right, duration: 0.2)
             let gameScene = GameScene(size: self.size)
             self.view?.presentScene(gameScene, transition: transition)

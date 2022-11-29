@@ -28,7 +28,6 @@ class GameCreators: SKNode {
         for i in 0...2 {
             let heartObj = HeartObject()
             heartArray.append(heartObj)
-
             heartArray[i].name = "coracao\(i)"
             heartArray[i].setPosition(heart: 750-(CGFloat((2-i))*35))
             heartCounter += 1
@@ -121,7 +120,7 @@ class GameCreators: SKNode {
             positions_x[randomRange] = randomRange
             randomPositions = CGPoint(x: x_points[randomRange], y: 70)
             
-            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImagePlastic[i]), size: CGSize(width: 50, height: 50), positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
+            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImagePlastic[i]), positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
             
             plasticJunk.append(junkObj)
             
@@ -160,7 +159,8 @@ class GameCreators: SKNode {
             positions_x[randomRange] = randomRange
             randomPositions = CGPoint(x: x_points[randomRange], y: 70)
             
-            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImageOrganic[i]), size: CGSize(width: 50, height: 50), positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
+            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImageOrganic[i]), positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
+            
             organicJunk.append(junkObj)
             
 //            organicJunk[i].setActionMoved(action: .moved) { touches in

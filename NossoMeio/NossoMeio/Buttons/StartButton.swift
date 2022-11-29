@@ -11,11 +11,13 @@ import SpriteKit
 class StartButton: SKNode {
     
     var image: SKSpriteNode?
-    var action: (() -> Void)?
+    var actionBegan: (() -> Void)?
+    var actionEnded: (() -> Void)?
     
-    init(image: SKSpriteNode, action: @escaping () -> Void) {
+    init(image: SKSpriteNode, actionBegan: @escaping () -> Void, actionEnded: @escaping () -> Void) {
         self.image = image
-        self.action = action
+        self.actionBegan = actionBegan
+        self.actionEnded = actionEnded
         super.init()
         //pode receber interação com o usuário
         self.isUserInteractionEnabled = true
@@ -28,7 +30,11 @@ class StartButton: SKNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.action?()
+        self.actionBegan?()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.actionEnded?()
     }
     
 }
