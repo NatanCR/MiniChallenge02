@@ -13,7 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var healthHeart = HeartObject()
     private var gameCreators = GameCreators()
     let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
-    let soundWrong = SKAction.playSoundFileNamed("wrongsound.mp3", waitForCompletion: false)
+    let soundWrong = SKAction.playSoundFileNamed("wrongSound.mp3", waitForCompletion: false)
     var background: SKAudioNode!
     
     override func sceneDidLoad() {
