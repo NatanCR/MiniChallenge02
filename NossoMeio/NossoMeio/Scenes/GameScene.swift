@@ -14,7 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gameCreators = GameCreators()
     let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
     let soundWrong = SKAction.playSoundFileNamed("wrongSound.mp3", waitForCompletion: false)
-    var background: SKAudioNode!
+    var backgroundMusic: SKAudioNode!
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -28,6 +28,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //limite de gravidade na tela
 //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        
+        if let musicURL = Bundle.main.url(forResource: "LovableClown", withExtension: "mp3") {
+            backgroundMusic = SKAudioNode(url: musicURL)
+            addChild(backgroundMusic)
+        }
         
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
