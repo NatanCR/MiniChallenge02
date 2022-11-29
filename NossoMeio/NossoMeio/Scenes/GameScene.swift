@@ -6,11 +6,14 @@
 //
 import SpriteKit
 import GameplayKit
+import AVKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private var healthHeart = HeartObject()
     private var gameCreators = GameCreators()
+    let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
+    let soundWrong = SKAction.playSoundFileNamed("wrongsound.mp3", waitForCompletion: false)
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -28,7 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
-//        addChild(healthHeart)
         addChild(gameCreators)
     }
     
@@ -37,12 +39,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
             print("CONTATO COM PLASTICO")
-            gameCreators.junkCounter -= 1            
+            gameCreators.junkCounter -= 1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 contact.bodyB.node?.removeFromParent()
+                self.run(self.soundRight)
             }
             
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.junkCounter == 0 {
                     gameCreators.isActive = true
@@ -53,6 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
             print("CONTATO COM ORGANICO")
+            run(soundWrong)
             gameCreators.changeHearts()
             gameCreators.heartCounter -= 1
             

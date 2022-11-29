@@ -98,14 +98,14 @@ class GameCreators: SKNode {
         let trash = SKSpriteNode(imageNamed: "lixeira")
         trash.position = CGPoint(x: 385, y: 240)
         trash.size = CGSize(width: 200, height: 200)
-        trash.zPosition = -1
+        trash.zPosition = 0
         trash.physicsBody = createTrashPhysicsBody(trash: trash)
         
         self.addChild(trash)
     }
     
     func createPlasticJunk() -> [JunkObject] {
-        let arrayImagePlastic = ["garrafinha", "sacola", "copo", "frasco"]
+        let arrayImagePlastic = ["garrafa", "sacola", "copo", "frasco", "balde", "saquinho", "tampinha"]
         var plasticJunk = [JunkObject]()
         var randomPositions : CGPoint
         var positions_x = [Int: Int]()
@@ -144,7 +144,7 @@ class GameCreators: SKNode {
     }
     
     func createOrganicJunk() -> [JunkObject] {
-        let arrayImageOrganic = ["papel", "maca", "pilha"]
+        let arrayImageOrganic = ["papel", "maca", "pilha", "latinha", "ovo"]
         var randomPositions : CGPoint
         var organicJunk = [JunkObject]()
         var positions_x = [Int: Int]()

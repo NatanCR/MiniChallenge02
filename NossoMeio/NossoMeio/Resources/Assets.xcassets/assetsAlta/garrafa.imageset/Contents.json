@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "lixeira.png",
+      "filename" : "garrafaAsset 5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "lixeira@2x.png",
+      "filename" : "garrafaAsset 5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "lixeira@3x.png",
+      "filename" : "garrafaAsset 5@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
