@@ -13,11 +13,12 @@ class JunkObject: SKNode {
     var junk: SKSpriteNode
     var body: SKPhysicsBody
     private var junkType: JunkType
+    private var actionTouch: ((_ touches: Set<UITouch>) -> Void)?
     private var actionMoved: ((_ touches: Set<UITouch>) -> Void)?
     private var actionEndMoved: ((_ touches: Set<UITouch>) -> Void)?
     
     enum ActionType {
-        case moved, endMoved
+        case moved, endMoved, touch
     }
     
     enum JunkType {
@@ -51,6 +52,8 @@ class JunkObject: SKNode {
             self.actionMoved = action
         case .endMoved:
             self.actionEndMoved = action
+        case .touch:
+            self.actionTouch = action
         }
     }
 
@@ -63,7 +66,8 @@ class JunkObject: SKNode {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.actionMoved?(touches)
+//        self.actionMoved?(touches)
+        self.actionTouch?(touches)
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

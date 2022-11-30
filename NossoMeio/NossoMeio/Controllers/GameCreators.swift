@@ -54,7 +54,7 @@ class GameCreators: SKNode {
         var randomPositions = CGPoint()
         var positions_x = [Int: Int]()
         var randomRange: Int
-//        var arrayRandomX_Points = [CGPoint]()
+        var arrayPositionObject = [String: CGPoint]()
         
             for i in 0..<4 {
                 finalJunkArray.append(newPlasticJunkArray[i])
@@ -72,20 +72,33 @@ class GameCreators: SKNode {
                 
                 positions_x[randomRange] = randomRange
                 randomPositions = CGPoint(x: x_points[randomRange], y: 70)
-//                arrayRandomX_Points.append(randomPositions)
                 
                 finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 
+                finalJunkArray[i].name = "objeto-\(i)"
+                
+                finalJunkArray[i].setActionMoved(action: .touch) { touches in
+                    for touch in touches {
+                        let touchLocation = touch.location(in: self)
+                        if finalJunkArray[i].contains(touchLocation) {
+                            arrayPositionObject = ["objeto-\(i)": touchLocation]
+                        }
+                    }
+                }
+                
                 finalJunkArray[i].setActionMoved(action: .moved) { touches in
-                    
                     for touch in touches {
                         let touchLocation = touch.location(in: self)
                         finalJunkArray[i].setPosition(positionPoint: touchLocation)
+                        
                     }
                 }
                 
                 finalJunkArray[i].setActionMoved(action: .endMoved) { touches in
-//                    finalJunkArray[i].setPosition(positionPoint: randomPositions)
+                    for (key, value) in arrayPositionObject {
+                        print("key \(key) -- value \(value)")
+                        finalJunkArray[i].setPosition(positionPoint: value)
+                    }
                 }
                 
                 self.addChild(finalJunkArray[i])
