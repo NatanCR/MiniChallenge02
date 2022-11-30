@@ -8,7 +8,7 @@ import SpriteKit
 
 class JunkObject: SKNode {
     
-    private var image: SKSpriteNode
+    private var image: String
     var positionPoint: CGPoint
     var junk: SKSpriteNode
     var body: SKPhysicsBody
@@ -24,7 +24,7 @@ class JunkObject: SKNode {
         case plastic, organic, glass, metal, paper
     }
     
-    init(image: SKSpriteNode, positionPoint: CGPoint, junkType: JunkType, body: SKPhysicsBody){
+    init(image: String, positionPoint: CGPoint, junkType: JunkType, body: SKPhysicsBody){
         self.image = image
         self.positionPoint = positionPoint
         self.junkType = junkType
@@ -33,9 +33,9 @@ class JunkObject: SKNode {
         super.init()
         self.isUserInteractionEnabled = true
         
-        self.junk.addChild(image)
+        self.junk = SKSpriteNode(imageNamed: image)
+        self.junk.setScale(0.5)
         self.junk.position = positionPoint
-        self.junk.size = CGSize(width: 10, height: 10)
         self.junk.physicsBody = body
         self.addChild(junk)
     }

@@ -14,7 +14,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gameCreators = GameCreators()
     let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
     let soundWrong = SKAction.playSoundFileNamed("wrongSound.mp3", waitForCompletion: false)
-    let backgroundSound = SKAudioNode(fileNamed: "LovableClownSit.mp3")
     var particleEmitter: SKEmitterNode!
     
     override func sceneDidLoad() {
@@ -34,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
         self.addChild(gameCreators)
-        self.addChild(backgroundSound)
+        self.addChild(displayBackgroundSound())
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -54,7 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if gameCreators.junkCounter == 0 {
                     gameCreators.isActive = true
                     winGame(isActive: gameCreators.isActive)
-                    backgroundSound.run(SKAction.stop())
+                    displayBackgroundSound().run(SKAction.stop())
                 }
             }
             
@@ -68,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if gameCreators.heartCounter == 0 {
                     gameCreators.isActive = true
                     winGame(isActive: gameCreators.isActive)
-                    backgroundSound.run(SKAction.stop())
+                    displayBackgroundSound().run(SKAction.stop())
                 }
             }
         }
@@ -101,4 +100,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             particleEmitter.zPosition = -1
             self.addChild(particleEmitter)
         }
+    
+    func displayBackgroundSound() -> SKAudioNode {
+        let backgroundSound = SKAudioNode(fileNamed: "LovableClownSit.mp3")
+        let backgroundSound2 = SKAudioNode(fileNamed: "AfterSchoolJamboree.mp3")
+        let randomRange = Int.random(in: 0...1)
+        if randomRange == 0 {
+            return backgroundSound
+        } else {
+            return backgroundSound2
+        }
+    }
 }

@@ -8,6 +8,12 @@
 import SpriteKit
 
 class MainVC: SKScene {
+    
+    override func sceneDidLoad() {
+//        let musica = SKAction.playSoundFileNamed("LovableClownSit", waitForCompletion: false)
+//        run(musica)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }

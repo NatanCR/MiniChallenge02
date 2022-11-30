@@ -11,7 +11,7 @@ import SpriteKit
 class GameCreators: SKNode {
     
     private var body = SKPhysicsBody()
-    private let x_points = [85, 185, 285, 385, 485, 585, 685]
+    private let x_points = [100, 200, 300, 400, 500, 600, 700]
     private var heartArray = [HeartObject]()
     let trashCategory: UInt32 = 1
     let plasticCategory: UInt32 = 2
@@ -54,6 +54,7 @@ class GameCreators: SKNode {
         var randomPositions = CGPoint()
         var positions_x = [Int: Int]()
         var randomRange: Int
+//        var arrayRandomX_Points = [CGPoint]()
         
             for i in 0..<4 {
                 finalJunkArray.append(newPlasticJunkArray[i])
@@ -71,6 +72,7 @@ class GameCreators: SKNode {
                 
                 positions_x[randomRange] = randomRange
                 randomPositions = CGPoint(x: x_points[randomRange], y: 70)
+//                arrayRandomX_Points.append(randomPositions)
                 
                 finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 
@@ -83,7 +85,7 @@ class GameCreators: SKNode {
                 }
                 
                 finalJunkArray[i].setActionMoved(action: .endMoved) { touches in
-                    
+//                    finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 }
                 
                 self.addChild(finalJunkArray[i])
@@ -93,22 +95,21 @@ class GameCreators: SKNode {
     
     func createTrash() {
         let trash = SKSpriteNode(imageNamed: "lixeira")
-        trash.position = CGPoint(x: 385, y: 240)
-        trash.size = CGSize(width: 200, height: 200)
+        trash.position = CGPoint(x: 400, y: 240)
+        trash.setScale(0.3)
         trash.zPosition = 0
         trash.physicsBody = createTrashPhysicsBody(trash: trash)
-        
         self.addChild(trash)
     }
     
     func createPlasticJunk() -> [JunkObject] {
-        var arrayImagePlastic = [ "garrafinha", "sacola", "copo", "frasco", "balde", "saquinho", "tampinha"]
+        var arrayImagePlastic = [ "balde", "copo", "frasco", "sacola", "garrafa", "saquinho", "tampinha"]
         var plasticJunk = [JunkObject]()
         var randomPositions : CGPoint
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-//        arrayImagePlastic.shuffle()
+        arrayImagePlastic.shuffle()
         for i in 0..<4 {
             repeat {
                 randomRange = Int.random(in: 0..<4)
@@ -117,7 +118,7 @@ class GameCreators: SKNode {
             positions_x[randomRange] = randomRange
             randomPositions = CGPoint(x: x_points[randomRange], y: 70)
             
-            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImagePlastic[i]), positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
+            let junkObj = JunkObject(image: arrayImagePlastic[i], positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
             
             plasticJunk.append(junkObj)
             
@@ -127,13 +128,13 @@ class GameCreators: SKNode {
     }
     
     func createOrganicJunk() -> [JunkObject] {
-        var arrayImageOrganic = ["papel", "maca", "pilha", "latinha", "ovo"]
+        var arrayImageOrganic = ["banana", "clips", "latinha", "maca", "ovo", "papel", "pilha"]
         var randomPositions : CGPoint
         var organicJunk = [JunkObject]()
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-//        arrayImageOrganic.shuffle()
+        arrayImageOrganic.shuffle()
         for i in 0..<3 {
             repeat {
                 randomRange = Int.random(in: 0..<3)
@@ -143,7 +144,7 @@ class GameCreators: SKNode {
             positions_x[randomRange] = randomRange
             randomPositions = CGPoint(x: x_points[randomRange], y: 70)
             
-            let junkObj = JunkObject(image: SKSpriteNode(imageNamed: arrayImageOrganic[i]), positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
+            let junkObj = JunkObject(image: arrayImageOrganic[i], positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
             
             organicJunk.append(junkObj)
             
