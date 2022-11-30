@@ -28,6 +28,8 @@
 		4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63FA3291ED1BE00872D40 /* MainScene.sks */; };
 		4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA5291ED64000872D40 /* MainVC.swift */; };
 		D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E96929379FBA00F64874 /* LoseScene.swift */; };
+		D172E96D2937DDD700F64874 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D172E96B2937DDD700F64874 /* spark.sks */; };
+		D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D172E96C2937DDD700F64874 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D172E96929379FBA00F64874 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
+		D172E96B2937DDD700F64874 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
+		D172E96C2937DDD700F64874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				4EA63F90291ECE4200872D40 /* Main.storyboard */,
 				4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */,
 				4EA63F93291ECE4400872D40 /* Assets.xcassets */,
+				D172E96B2937DDD700F64874 /* spark.sks */,
+				D172E96C2937DDD700F64874 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 				4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */,
 				4E8430002936711200CD76EE /* AfterSchoolJamboree.mp3 in Resources */,
 				4EA63F8B291ECE4200872D40 /* Actions.sks in Resources */,
+				D172E96D2937DDD700F64874 /* spark.sks in Resources */,
 				4E08F19D29364A3600AED444 /* cheeringSound.mp3 in Resources */,
 				4E842FFC29366B4800CD76EE /* wrongSound.mp3 in Resources */,
 				4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */,
+				D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */,
 				4E842FFE293670CD00CD76EE /* LovableClownSit.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

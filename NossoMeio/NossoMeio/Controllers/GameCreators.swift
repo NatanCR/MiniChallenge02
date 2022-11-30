@@ -10,7 +10,6 @@ import SpriteKit
 
 class GameCreators: SKNode {
     
-    private var touchLocation = CGPoint()
     private var body = SKPhysicsBody()
     private let x_points = [85, 185, 285, 385, 485, 585, 685]
     private var heartArray = [HeartObject]()
@@ -41,6 +40,7 @@ class GameCreators: SKNode {
             if heartArray[i].isActive == true {
                 heartArray[i].setTexture(heart: changeTexture)
                 heartArray[i].isActive = false
+                heartCounter -= 1
                 break
             }
         }
@@ -48,8 +48,8 @@ class GameCreators: SKNode {
     
     func createFinalJunkArray(_ plasticJunkArray: [JunkObject], _ organicJunkArray: [JunkObject]) {
         var finalJunkArray = [JunkObject]()
-        var newPlasticJunkArray = plasticJunkArray
-        var newOrganicJunkArray = organicJunkArray
+        let newPlasticJunkArray = plasticJunkArray
+        let newOrganicJunkArray = organicJunkArray
         
         var randomPositions = CGPoint()
         var positions_x = [Int: Int]()
@@ -75,16 +75,15 @@ class GameCreators: SKNode {
                 finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 
                 finalJunkArray[i].setActionMoved(action: .moved) { touches in
+                    
                     for touch in touches {
-                        self.touchLocation = touch.location(in: self)
-                        self.touchLocation.x -= finalJunkArray[i].positionPoint.x
-                        self.touchLocation.y -= finalJunkArray[i].positionPoint.y
-                        finalJunkArray[i].position = self.touchLocation
+                        let touchLocation = touch.location(in: self)
+                        finalJunkArray[i].setPosition(positionPoint: touchLocation)
                     }
                 }
                 
                 finalJunkArray[i].setActionMoved(action: .endMoved) { touches in
-                    finalJunkArray[i].position = CGPoint(x: 0, y: 0)
+                    
                 }
                 
                 self.addChild(finalJunkArray[i])
@@ -109,11 +108,10 @@ class GameCreators: SKNode {
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-        arrayImagePlastic.shuffle()
+//        arrayImagePlastic.shuffle()
         for i in 0..<4 {
             repeat {
                 randomRange = Int.random(in: 0..<4)
-                
             } while positions_x[randomRange] != nil
             
             positions_x[randomRange] = randomRange
@@ -123,20 +121,6 @@ class GameCreators: SKNode {
             
             plasticJunk.append(junkObj)
             
-//            plasticJunk[i].setActionMoved(action: .moved) { touches in
-//                for touch in touches {
-//                    self.touchLocation = touch.location(in: self)
-//                    self.touchLocation.x -= plasticJunk[i].positionPoint.x
-//                    self.touchLocation.y -= plasticJunk[i].positionPoint.y
-//                    plasticJunk[i].position = self.touchLocation
-//                }
-//            }
-//
-//            plasticJunk[i].setActionMoved(action: .endMoved) { touches in
-//                plasticJunk[i].position = CGPoint(x: 0, y: 0)
-//            }
-            
-            //            self.addChild(plasticJunk[i])
         }
         
         return plasticJunk
@@ -149,7 +133,7 @@ class GameCreators: SKNode {
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-        arrayImageOrganic.shuffle()
+//        arrayImageOrganic.shuffle()
         for i in 0..<3 {
             repeat {
                 randomRange = Int.random(in: 0..<3)
@@ -163,19 +147,6 @@ class GameCreators: SKNode {
             
             organicJunk.append(junkObj)
             
-//            organicJunk[i].setActionMoved(action: .moved) { touches in
-//                for touch in touches {
-//                    self.touchLocation = touch.location(in: self)
-//                    self.touchLocation.x -= organicJunk[i].positionPoint.x
-//                    self.touchLocation.y -= organicJunk[i].positionPoint.y
-//                    organicJunk[i].position = self.touchLocation
-//                }
-//            }
-//
-//            organicJunk[i].setActionMoved(action: .endMoved) { touches in
-//                organicJunk[i].position = CGPoint(x: 0, y: 0)
-//            }
-            //            self.addChild(organicJunk[i])
         }
         
         return organicJunk

@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
     let soundWrong = SKAction.playSoundFileNamed("wrongSound.mp3", waitForCompletion: false)
     let backgroundSound = SKAudioNode(fileNamed: "LovableClownSit.mp3")
+    var particleEmitter: SKEmitterNode!
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -28,17 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //limite de gravidade na tela
 //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-        
-//        if let musicURL = Bundle.main.url(forResource: "LovableClown", withExtension: "mp3") {
-//            backgroundMusic = SKAudioNode(url: musicURL)
-//            addChild(backgroundMusic)
-//            backgroundMusic.run(SKAction.play())
-//        }
-        
-        
-        
-        
-        
+
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
@@ -50,8 +41,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let contacting: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
-            print("CONTATO COM PLASTICO")
             gameCreators.junkCounter -= 1
+            setEmitter()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 contact.bodyB.node?.removeFromParent()
@@ -69,11 +60,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
-            print("CONTATO COM ORGANICO")
             run(soundWrong)
             
             gameCreators.changeHearts()
-            gameCreators.heartCounter -= 1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.heartCounter == 0 {
@@ -104,4 +93,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.view?.presentScene(winScene, transition: transition)
         }
     }
+    
+    func setEmitter() {
+            particleEmitter = SKEmitterNode(fileNamed: "spark")
+            particleEmitter.position.x = 380
+            particleEmitter.position.y = 245
+            particleEmitter.zPosition = -1
+            self.addChild(particleEmitter)
+        }
 }

@@ -9,14 +9,7 @@ import SpriteKit
 
 class MainVC: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let scale = SKAction.scale(to: 0.4, duration: 0.1)
-        let touch = touches.first
-        if let location = touch?.location(in: self) {
-            let nodesArray = self.nodes(at: location)
-            if nodesArray.first?.name == "playButton" {
-                self.run(scale)
-            }
-        }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
