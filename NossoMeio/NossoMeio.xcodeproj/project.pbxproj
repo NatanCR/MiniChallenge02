@@ -20,6 +20,7 @@
 		4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */; };
 		4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63FA3291ED1BE00872D40 /* MainScene.sks */; };
 		4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA5291ED64000872D40 /* MainVC.swift */; };
+		6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4EA63F96291ECE4400872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				4E05CB9529292ED7008E017A /* StartButton.swift */,
+				6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				4EA63F8F291ECE4200872D40 /* GameViewController.swift in Sources */,
 				4EA63F87291ECE4100872D40 /* AppDelegate.swift in Sources */,
 				4C9E25D9292818A7007B9FB5 /* TutorialScene.swift in Sources */,
+				6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */,
 				4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */,
 				4E05CB9629292ED7008E017A /* StartButton.swift in Sources */,
 				4E05CB99292ACA65008E017A /* JunkObject.swift in Sources */,
