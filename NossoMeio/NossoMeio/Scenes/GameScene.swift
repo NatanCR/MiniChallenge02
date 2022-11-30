@@ -14,7 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gameCreators = GameCreators()
     let soundRight = SKAction.playSoundFileNamed("cheeringSound.mp3", waitForCompletion: false)
     let soundWrong = SKAction.playSoundFileNamed("wrongSound.mp3", waitForCompletion: false)
-    var backgroundMusic: SKAudioNode!
+    let backgroundSound = SKAudioNode(fileNamed: "LovableClownSit.mp3")
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -29,15 +29,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //limite de gravidade na tela
 //        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
-        if let musicURL = Bundle.main.url(forResource: "LovableClown", withExtension: "mp3") {
-            backgroundMusic = SKAudioNode(url: musicURL)
-            addChild(backgroundMusic)
-        }
+//        if let musicURL = Bundle.main.url(forResource: "LovableClown", withExtension: "mp3") {
+//            backgroundMusic = SKAudioNode(url: musicURL)
+//            addChild(backgroundMusic)
+//            backgroundMusic.run(SKAction.play())
+//        }
+        
+        
+        
+        
         
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
-        addChild(gameCreators)
+        self.addChild(gameCreators)
+        self.addChild(backgroundSound)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -56,7 +62,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.junkCounter == 0 {
                     gameCreators.isActive = true
-                    winGame(key: gameCreators.isActive)
+                    winGame(isActive: gameCreators.isActive)
+                    backgroundSound.run(SKAction.stop())
                 }
             }
             
@@ -64,12 +71,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
             print("CONTATO COM ORGANICO")
             run(soundWrong)
+            
             gameCreators.changeHearts()
             gameCreators.heartCounter -= 1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.heartCounter == 0 {
-                    winGame(key: true)
+                    gameCreators.isActive = true
+                    winGame(isActive: gameCreators.isActive)
+                    backgroundSound.run(SKAction.stop())
                 }
             }
         }
@@ -79,12 +89,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("acabou contato")
     }
     
-    func winGame(key: Bool) {
-        if key == true {
+    func winGame(isActive: Bool) {
+        if isActive == true {
             let transition = SKTransition.crossFade(withDuration: 0.2)
             let winScene = WinScene(size: self.size)
             self.view?.presentScene(winScene, transition: transition)
         }
     }
     
+    func loseGame(isActive: Bool) {
+        if isActive == true {
+            let transition = SKTransition.crossFade(withDuration: 0.2)
+            let winScene = LoseScene(size: self.size)
+            self.view?.presentScene(winScene, transition: transition)
+        }
+    }
 }

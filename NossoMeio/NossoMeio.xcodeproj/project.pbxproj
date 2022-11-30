@@ -27,6 +27,7 @@
 		4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */; };
 		4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63FA3291ED1BE00872D40 /* MainScene.sks */; };
 		4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA5291ED64000872D40 /* MainVC.swift */; };
+		D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E96929379FBA00F64874 /* LoseScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		4EA63F96291ECE4400872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D172E96929379FBA00F64874 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				4EA63F88291ECE4200872D40 /* GameScene.sks */,
 				4EA63FA3291ED1BE00872D40 /* MainScene.sks */,
+				D172E96929379FBA00F64874 /* LoseScene.swift */,
 				4E6C12342934F6EE004FDBAF /* WinScene.swift */,
 				4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */,
 				4EA63F8C291ECE4200872D40 /* GameScene.swift */,
@@ -233,6 +236,7 @@
 				4C9E25D9292818A7007B9FB5 /* TutorialScene.swift in Sources */,
 				4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */,
 				4E6C12332934F3B8004FDBAF /* GameCreators.swift in Sources */,
+				D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */,
 				4E05CB9629292ED7008E017A /* StartButton.swift in Sources */,
 				4E05CB99292ACA65008E017A /* JunkObject.swift in Sources */,
 			);

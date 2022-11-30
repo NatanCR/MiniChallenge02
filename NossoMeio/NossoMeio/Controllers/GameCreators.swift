@@ -55,13 +55,11 @@ class GameCreators: SKNode {
         var positions_x = [Int: Int]()
         var randomRange: Int
         
-            newPlasticJunkArray.shuffle()
             for i in 0..<4 {
                 finalJunkArray.append(newPlasticJunkArray[i])
                 junkCounter += 1
             }
             
-            newOrganicJunkArray.shuffle()
             for i in 0..<3 {
                 finalJunkArray.append(newOrganicJunkArray[i])
             }
@@ -105,12 +103,13 @@ class GameCreators: SKNode {
     }
     
     func createPlasticJunk() -> [JunkObject] {
-        let arrayImagePlastic = ["garrafa", "sacola", "copo", "frasco", "balde", "saquinho", "tampinha"]
+        var arrayImagePlastic = [ "garrafinha", "sacola", "copo", "frasco", "balde", "saquinho", "tampinha"]
         var plasticJunk = [JunkObject]()
         var randomPositions : CGPoint
         var positions_x = [Int: Int]()
         var randomRange: Int
         
+        arrayImagePlastic.shuffle()
         for i in 0..<4 {
             repeat {
                 randomRange = Int.random(in: 0..<4)
@@ -144,12 +143,13 @@ class GameCreators: SKNode {
     }
     
     func createOrganicJunk() -> [JunkObject] {
-        let arrayImageOrganic = ["papel", "maca", "pilha", "latinha", "ovo"]
+        var arrayImageOrganic = ["papel", "maca", "pilha", "latinha", "ovo"]
         var randomPositions : CGPoint
         var organicJunk = [JunkObject]()
         var positions_x = [Int: Int]()
         var randomRange: Int
         
+        arrayImageOrganic.shuffle()
         for i in 0..<3 {
             repeat {
                 randomRange = Int.random(in: 0..<3)
