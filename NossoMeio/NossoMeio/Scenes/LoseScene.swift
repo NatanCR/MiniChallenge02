@@ -10,7 +10,7 @@ import SpriteKit
 class LoseScene: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.backgroundColor = SKColor.white
+        self.backgroundColor = 
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
         createNewGameButton()
