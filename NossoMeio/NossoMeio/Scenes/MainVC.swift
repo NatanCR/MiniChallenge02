@@ -31,21 +31,21 @@ class MainVC: SKScene {
     }
     
     //actions
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        buttonPressed()
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.action?()
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        buttonPressed()
+//    }
+//    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.action?()
+//    }
     
     func createPlayButton() {
         let image = SKSpriteNode(imageNamed: "jogar")
         let button = StartButton(image: image) {
             
+        } actionEnded: {
             let transition = SKTransition.moveIn(with: .right, duration: 0.4)
             let tutorialScene = TutorialScene(size: self.size)
-            
             self.view?.presentScene(tutorialScene, transition: transition)
         }
         //x 405, y 185 fica no meio da tela

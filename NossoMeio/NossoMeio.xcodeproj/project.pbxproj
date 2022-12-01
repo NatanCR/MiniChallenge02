@@ -27,10 +27,10 @@
 		4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */; };
 		4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63FA3291ED1BE00872D40 /* MainScene.sks */; };
 		4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63FA5291ED64000872D40 /* MainVC.swift */; };
+		6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */; };
 		D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E96929379FBA00F64874 /* LoseScene.swift */; };
 		D172E96D2937DDD700F64874 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D172E96B2937DDD700F64874 /* spark.sks */; };
 		D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D172E96C2937DDD700F64874 /* Assets.xcassets */; };
-		6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,10 +55,10 @@
 		4EA63F96291ECE4400872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 		D172E96929379FBA00F64874 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		D172E96B2937DDD700F64874 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 		D172E96C2937DDD700F64874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
-		6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 				4EA63FA3291ED1BE00872D40 /* MainScene.sks */,
 				D172E96929379FBA00F64874 /* LoseScene.swift */,
 				4E6C12342934F6EE004FDBAF /* WinScene.swift */,
-				4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */,
 				4EA63F8C291ECE4200872D40 /* GameScene.swift */,
+				4C9E25D8292818A7007B9FB5 /* TutorialScene.swift */,
 				4EA63FA5291ED64000872D40 /* MainVC.swift */,
 			);
 			path = Scenes;

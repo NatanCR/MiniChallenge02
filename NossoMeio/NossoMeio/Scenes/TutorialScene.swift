@@ -23,9 +23,9 @@ class TutorialScene: SKScene {
         let image = SKSpriteNode(imageNamed: "comecar")
          let button = StartButton(image: image) {
              
+         } actionEnded: {
              let transition = SKTransition.moveIn(with: .right, duration: 0.2)
              let gameScene = GameScene(size: self.size)
-             
              self.view?.presentScene(gameScene, transition: transition)
          }
         //x 405, y 185 fica no meio da tela
