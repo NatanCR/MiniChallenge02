@@ -111,7 +111,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             particleEmitter = SKEmitterNode(fileNamed: "spark")
             particleEmitter.position.x = 380
             particleEmitter.position.y = 245
-            particleEmitter.zPosition = -1
+            particleEmitter.zPosition = -21
             self.addChild(particleEmitter)
         }
     
