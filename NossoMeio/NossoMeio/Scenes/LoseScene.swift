@@ -25,6 +25,7 @@ class LoseScene: SKScene {
         homeButton()
     }
 
+    
     func tryAgainButton() {
         let image = SKSpriteNode(imageNamed: "botaoTentarNovamente")
         let scale = SKAction.scale(to: 0.4, duration: 0.1)
@@ -54,7 +55,6 @@ class LoseScene: SKScene {
             let mainVC = MainVC(fileNamed: "MainScene")
             self.view?.presentScene(mainVC!, transition: transition)
         }
-        
         image.setScale(0.40)
         
         button.position = CGPoint(x: 425, y: 105)

@@ -20,6 +20,7 @@ class TutorialScene2: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+     //   self.backgroundColor = SKColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
       passSceneButton()
@@ -28,6 +29,7 @@ class TutorialScene2: SKScene {
     func passSceneButton() {
         let image = SKSpriteNode(imageNamed: "botaoComecar")
         let scale = SKAction.scale(to: 0.4, duration: 0.1)
+      //  image.size = CGSize(width: 160, height: 100)
         image.setScale(0.4)
         
         let button = StartButton(image: image) {
