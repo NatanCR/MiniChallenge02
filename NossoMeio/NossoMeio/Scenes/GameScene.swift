@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.heartCounter == 0 {
                     gameCreators.isActive = true
-                    winGame(isActive: gameCreators.isActive)
+                    loseGame(isActive: gameCreators.isActive)
                     backgroundSound.run(SKAction.stop())
                 }
             }
