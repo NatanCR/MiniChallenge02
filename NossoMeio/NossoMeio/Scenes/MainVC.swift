@@ -9,21 +9,26 @@ import SpriteKit
 
 class MainVC: SKScene {
     
-    override func sceneDidLoad() {
-        super.sceneDidLoad()
-        self.backgroundColor = SKColor.brown
-        self.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        createPlayButton()
-    }
+//        override func didMove(to view: SKView) {
+//            let background = SKSpriteNode(imageNamed: "jogar")
+//            background.anchorPoint = self.anchorPoint
+//            background.scale(to: scene!.size)
+//            background.zPosition = -1
+//
+//            self.addChild(background)
+//
+//        }
 
-    func createPlayButton() {
-        let image = SKSpriteNode(imageNamed: "jogar")
-        let button = StartButton(image: image) {
-            
-        } actionEnded: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let transition = SKTransition.moveIn(with: .right, duration: 0.4)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if let location = touch?.location(in: self) {
+            let nodesArray = self.nodes(at: location)
+            if nodesArray.first?.name == "botaoJogar" {
+                let transition = SKTransition.crossFade(withDuration: 0.2)
                 let tutorialScene = TutorialScene(size: self.size)
                 self.view?.presentScene(tutorialScene, transition: transition)
             }
