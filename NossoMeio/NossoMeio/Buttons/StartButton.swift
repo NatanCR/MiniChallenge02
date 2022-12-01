@@ -30,11 +30,17 @@ class StartButton: SKNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.actionBegan?()
+        // self.action?()
+        buttonPressed()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.actionEnded?()
+        self.action?()
     }
     
+    public func buttonPressed() {
+        let sequenceAnim = SKAction.sequence([
+            ButtonAnimation.pressed(0.6)])
+        self.run(sequenceAnim)
+    }
 }

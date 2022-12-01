@@ -30,6 +30,7 @@
 		D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E96929379FBA00F64874 /* LoseScene.swift */; };
 		D172E96D2937DDD700F64874 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D172E96B2937DDD700F64874 /* spark.sks */; };
 		D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D172E96C2937DDD700F64874 /* Assets.xcassets */; };
+		6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		D172E96929379FBA00F64874 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		D172E96B2937DDD700F64874 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 		D172E96C2937DDD700F64874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
+		6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				4E05CB9529292ED7008E017A /* StartButton.swift */,
+				6B85C3BF2936F7A4005D8904 /* ButtonAnimation.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				4E6C12372934FFE0004FDBAF /* HeartObject.swift in Sources */,
 				4EA63F87291ECE4100872D40 /* AppDelegate.swift in Sources */,
 				4C9E25D9292818A7007B9FB5 /* TutorialScene.swift in Sources */,
+				6B85C3C02936F7A4005D8904 /* ButtonAnimation.swift in Sources */,
 				4EA63FA6291ED64000872D40 /* MainVC.swift in Sources */,
 				4E6C12332934F3B8004FDBAF /* GameCreators.swift in Sources */,
 				D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */,
@@ -395,6 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DWZ7HM73F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -423,6 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DWZ7HM73F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

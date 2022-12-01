@@ -23,6 +23,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        
+        //         var heartsArray: [SKSpriteNode] = [SKSpriteNode]()
+        //
+        //        let heart = SKSpriteNode(imageNamed: "vidaCheia")
+        //
+        //        heartsArray.append(heart)
+        //
+        //
+        
+        
         //posição da ancora na tela
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -40,6 +50,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
+        
         let contacting: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
