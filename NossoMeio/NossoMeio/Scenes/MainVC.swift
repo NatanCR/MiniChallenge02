@@ -8,17 +8,28 @@
 import SpriteKit
 
 class MainVC: SKScene {
+    var button: SKSpriteNode!
+    var background: SKSpriteNode!
+    
+    override func sceneDidLoad() {
+        button = self.childNode(withName: "botaoJogar") as? SKSpriteNode
+        background = self.childNode(withName: "background") as? SKSpriteNode
+    }
+    
+    override func didMove(to view: SKView) {
+        background.scale(to: scene!.size)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         if let location = touch?.location(in: self) {
             let nodesArray = self.nodes(at: location)
-            if nodesArray.first?.name == "botaoJogar" {
+            if nodesArray.first == button {
                 buttonPressed()
             }
         }
     }
-        
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         if let location = touch?.location(in: self) {
@@ -33,8 +44,8 @@ class MainVC: SKScene {
     
     public func buttonPressed() {
         let sequenceAnim = SKAction.sequence([
-            ButtonAnimation.pressed(0.3)])
-        self.run(sequenceAnim)
+            ButtonAnimation.pressed(0.6)])
+        self.button.run(sequenceAnim)
     }
 }
 

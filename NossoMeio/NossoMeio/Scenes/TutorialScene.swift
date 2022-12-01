@@ -31,11 +31,11 @@ class TutorialScene: SKScene {
         
         let button = StartButton(image: image) {
         } actionEnded: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let transition = SKTransition.reveal(with: .left, duration: 0.3)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                let transition = SKTransition.reveal(with: .left, duration: 0.8)
                 let tutorialScene2 = TutorialScene2(size: self.size)
                 self.view?.presentScene(tutorialScene2, transition: transition)
-            }
+//            }
         }
         //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 705, y: 185)
