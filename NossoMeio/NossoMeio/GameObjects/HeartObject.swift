@@ -13,7 +13,7 @@ class HeartObject: SKNode {
     
     override init() {
         super.init()
-        self.heart = SKSpriteNode(imageNamed: "vidaCheia")
+        self.heart = SKSpriteNode(imageNamed: "coracaoVermelho")
         heart.anchorPoint = CGPoint(x: 0.5, y: 1)
         heart.size = CGSize(width: 35, height: 35)
         heart.position.y = 350
@@ -30,12 +30,5 @@ class HeartObject: SKNode {
     
     func setTexture(heart action: SKAction) {
         self.heart.run(action)
-    }
-    
-    func deleteHeart() {
-            if self.isActive == true {
-                self.heart = SKSpriteNode(imageNamed: "copo")
-                self.isActive = false
-            }
     }
 }

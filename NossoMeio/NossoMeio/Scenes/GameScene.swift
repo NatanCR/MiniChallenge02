@@ -81,7 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.heartCounter == 0 {
                     gameCreators.isActive = true
-                    winGame(isActive: gameCreators.isActive)
+                    loseGame(isActive: gameCreators.isActive)
                     displayBackgroundSound().run(SKAction.stop())
                 }
             }
@@ -90,9 +90,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func winGame(isActive: Bool) {
         if isActive == true {
-            let transition = SKTransition.crossFade(withDuration: 0.2)
-            let winScene = WinScene(size: self.size)
-            self.view?.presentScene(winScene, transition: transition)
+//            let transition = SKTransition.crossFade(withDuration: 0.2)
+//            let winScene = WinScene(size: self.size)
+//            self.view?.presentScene(winScene, transition: transition)
+            let transtion = SKTransition.crossFade(withDuration: 0.2)
+            let mainVC = MainVC(size: self.size)
+            self.view?.presentScene(mainVC, transition: transtion)
         }
     }
     
