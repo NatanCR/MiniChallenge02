@@ -15,29 +15,26 @@ class TutorialScene2: SKScene {
         background.zPosition = -1
         
         self.addChild(background)
-
     }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-     //   self.backgroundColor = SKColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
-      passSceneButton()
+        passSceneButton()
     }
     
     func passSceneButton() {
         let image = SKSpriteNode(imageNamed: "botaoComecar")
-        let scale = SKAction.scale(to: 0.4, duration: 0.1)
-      //  image.size = CGSize(width: 160, height: 100)
         image.setScale(0.4)
         
         let button = StartButton(image: image) {
-            self.run(scale)
         } actionEnded: {
-            let transition = SKTransition.reveal(with: .left, duration: 0.3)
-            let gameScene = GameScene(size: self.size)
-            self.view?.presentScene(gameScene, transition: transition)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                let transition = SKTransition.reveal(with: .left, duration: 0.3)
+                let gameScene = GameScene(size: self.size)
+                self.view?.presentScene(gameScene, transition: transition)
+            }
         }
         //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 655, y: 185)

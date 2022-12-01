@@ -66,7 +66,6 @@ class JunkObject: SKNode {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.actionMoved?(touches)
         self.actionTouch?(touches)
     }
 

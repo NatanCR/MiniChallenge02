@@ -34,6 +34,7 @@ class GameCreators: SKNode {
     func createGround() {
         let groundTexture = SKTexture(imageNamed: "chao")
         let ground = SKSpriteNode(texture: groundTexture)
+        ground.size.height = 230
         ground.zPosition = -10
         addChild(ground)
     }
@@ -125,7 +126,7 @@ class GameCreators: SKNode {
         let trash = SKSpriteNode(imageNamed: "lixeira")
         trash.position = CGPoint(x: 400, y: 240)
         trash.setScale(0.3)
-        trash.zPosition = 0
+        trash.zPosition = -15
         trash.physicsBody = createTrashPhysicsBody(trash: trash)
         self.addChild(trash)
     }

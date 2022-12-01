@@ -23,16 +23,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        
-        //         var heartsArray: [SKSpriteNode] = [SKSpriteNode]()
-        //
-        //        let heart = SKSpriteNode(imageNamed: "vidaCheia")
-        //
-        //        heartsArray.append(heart)
-        //
-        //
-        
-        
         //posição da ancora na tela
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -58,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameCreators.junkCounter -= 1
             setEmitter()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 contact.bodyB.node?.removeFromParent()
                 self.run(self.soundRight)
             }
@@ -90,12 +80,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func winGame(isActive: Bool) {
         if isActive == true {
-//            let transition = SKTransition.crossFade(withDuration: 0.2)
-//            let winScene = WinScene(size: self.size)
-//            self.view?.presentScene(winScene, transition: transition)
-            let transtion = SKTransition.crossFade(withDuration: 0.2)
-            let mainVC = MainVC(size: self.size)
-            self.view?.presentScene(mainVC, transition: transtion)
+            let transition = SKTransition.crossFade(withDuration: 0.2)
+            let winScene = WinScene(size: self.size)
+            self.view?.presentScene(winScene, transition: transition)
         }
     }
     
