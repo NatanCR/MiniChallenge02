@@ -32,8 +32,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
+        gameCreators.createGround()
+        gameCreators.createBackground()
         self.addChild(gameCreators)
         self.addChild(displayBackgroundSound())
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -73,10 +76,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func didEnd(_ contact: SKPhysicsContact) {
-        print("acabou contato")
-    }
-    
     func winGame(isActive: Bool) {
         if isActive == true {
             let transition = SKTransition.crossFade(withDuration: 0.2)
@@ -111,4 +110,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return backgroundSound2
         }
     }
+    
+    
 }

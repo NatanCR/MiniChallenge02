@@ -23,6 +23,21 @@ class GameCreators: SKNode {
     var isActive = false
     var heartCounter = 0
     
+    func createBackground() {
+        let backgroundTexture = SKTexture(imageNamed: "fundo")
+        let background = SKSpriteNode(texture: backgroundTexture)
+        background.zPosition = -20
+        background.anchorPoint = CGPoint.zero
+        addChild(background)
+    }
+    
+    func createGround() {
+        let groundTexture = SKTexture(imageNamed: "chao")
+        let ground = SKSpriteNode(texture: groundTexture)
+        ground.zPosition = -10
+        addChild(ground)
+    }
+    
     func createHearts() {
         for i in 0...2 {
             let heartObj = HeartObject()
