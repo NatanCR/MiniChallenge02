@@ -33,11 +33,6 @@ class MainVC: SKScene {
                 self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
-        
-        //x 405, y 185 fica no meio da tela
-        button.position = CGPoint(x: 405, y: 185)
-        button.zPosition = 10
-        addChild(button)
     }
     
     public func buttonPressed() {

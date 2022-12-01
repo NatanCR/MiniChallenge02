@@ -26,7 +26,7 @@ class GameCreators: SKNode {
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "fundo")
         let background = SKSpriteNode(texture: backgroundTexture)
-        background.zPosition = -20
+        background.zPosition = -30
         background.anchorPoint = CGPoint.zero
         addChild(background)
     }
@@ -34,6 +34,7 @@ class GameCreators: SKNode {
     func createGround() {
         let groundTexture = SKTexture(imageNamed: "chao")
         let ground = SKSpriteNode(texture: groundTexture)
+        ground.position = CGPoint(x: 0, y: -25)
         ground.zPosition = -10
         addChild(ground)
     }
@@ -43,7 +44,7 @@ class GameCreators: SKNode {
             let heartObj = HeartObject()
             heartArray.append(heartObj)
             heartArray[i].name = "coracao\(i)"
-            heartArray[i].setPosition(heart: 750-(CGFloat((2-i))*35))
+            heartArray[i].setPosition(heart: 750-(CGFloat((2-i))*40))
             heartCounter += 1
             self.addChild(heartArray[i])
         }
@@ -123,9 +124,9 @@ class GameCreators: SKNode {
     
     func createTrash() {
         let trash = SKSpriteNode(imageNamed: "lixeira")
-        trash.position = CGPoint(x: 400, y: 240)
-        trash.setScale(0.3)
-        trash.zPosition = 0
+        trash.position = CGPoint(x: 400, y: 220)
+        trash.setScale(0.35)
+        trash.zPosition = -20
         trash.physicsBody = createTrashPhysicsBody(trash: trash)
         self.addChild(trash)
     }

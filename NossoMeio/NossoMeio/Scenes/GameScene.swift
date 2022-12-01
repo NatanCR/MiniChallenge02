@@ -94,16 +94,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            let winScene = WinScene(size: self.size)
 //            self.view?.presentScene(winScene, transition: transition)
             let transtion = SKTransition.crossFade(withDuration: 0.2)
-            let mainVC = MainVC(size: self.size)
-            self.view?.presentScene(mainVC, transition: transtion)
+            let winScene = WinScene(size: self.size)
+            self.view?.presentScene(winScene, transition: transtion)
         }
     }
     
     func loseGame(isActive: Bool) {
         if isActive == true {
             let transition = SKTransition.crossFade(withDuration: 0.2)
-            let winScene = LoseScene(size: self.size)
-            self.view?.presentScene(winScene, transition: transition)
+            let loseScene = LoseScene(size: self.size)
+            self.view?.presentScene(loseScene, transition: transition)
         }
     }
     
