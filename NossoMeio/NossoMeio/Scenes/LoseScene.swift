@@ -25,7 +25,6 @@ class LoseScene: SKScene {
         homeButton()
     }
 
-    
     func tryAgainButton() {
         let image = SKSpriteNode(imageNamed: "botaoTentarNovamente")
         
