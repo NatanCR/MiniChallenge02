@@ -26,6 +26,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //posição da ancora na tela
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
+        //limite de gravidade na tela
+//        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
@@ -86,8 +89,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func loseGame(isActive: Bool) {
         if isActive == true {
             let transition = SKTransition.crossFade(withDuration: 0.2)
-            let winScene = LoseScene(size: self.size)
-            self.view?.presentScene(winScene, transition: transition)
+            let loseScene = LoseScene(size: self.size)
+            self.view?.presentScene(loseScene, transition: transition)
         }
     }
     
@@ -95,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             particleEmitter = SKEmitterNode(fileNamed: "spark")
             particleEmitter.position.x = 380
             particleEmitter.position.y = 245
-            particleEmitter.zPosition = -1
+            particleEmitter.zPosition = -21
             self.addChild(particleEmitter)
         }
     
@@ -109,4 +112,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return backgroundSound2
         }
     }
+    
+    
 }

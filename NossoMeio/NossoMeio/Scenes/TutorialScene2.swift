@@ -19,6 +19,7 @@ class TutorialScene2: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+     //   self.backgroundColor = SKColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
         passSceneButton()
