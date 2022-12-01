@@ -8,16 +8,6 @@
 import SpriteKit
 
 class MainVC: SKScene {
-    
-//        override func didMove(to view: SKView) {
-//            let background = SKSpriteNode(imageNamed: "jogar")
-//            background.anchorPoint = self.anchorPoint
-//            background.scale(to: scene!.size)
-//            background.zPosition = -1
-//
-//            self.addChild(background)
-//
-//        }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -33,11 +23,6 @@ class MainVC: SKScene {
                 self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
-        
-        //x 405, y 185 fica no meio da tela
-        button.position = CGPoint(x: 405, y: 185)
-        button.zPosition = 10
-        addChild(button)
     }
     
     public func buttonPressed() {
