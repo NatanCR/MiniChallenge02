@@ -33,7 +33,7 @@ class TutorialScene: SKScene {
         let button = StartButton(image: image) {
             self.run(scale)
         } actionEnded: {
-            let transition = SKTransition.reveal(with: .left, duration: 0.3)
+            let transition = SKTransition.reveal(with: .left, duration: 0.8)
             let tutorialScene2 = TutorialScene2(size: self.size)
             self.view?.presentScene(tutorialScene2, transition: transition)
         }
