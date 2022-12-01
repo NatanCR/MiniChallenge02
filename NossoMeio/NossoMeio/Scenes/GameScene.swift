@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
         //limite de gravidade na tela
-//        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
 
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameCreators.junkCounter -= 1
             setEmitter()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 contact.bodyB.node?.removeFromParent()
                 self.run(self.soundRight)
             }
@@ -65,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
             run(soundWrong)
-            
             gameCreators.changeHearts()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in

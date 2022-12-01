@@ -10,27 +10,22 @@ import SpriteKit
 class WinScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "telaParabens")
-        // let background = SKSpriteNode(imageNamed: "telaParabens")
         background.anchorPoint = self.anchorPoint
         background.scale(to: scene!.size)
         background.zPosition = -1
-        
-        
         self.addChild(background)
     }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        //  self.backgroundColor = SKColor.white
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        
         
         playAgainButton()
         homeButton()
     }
     
     func playAgainButton() {
-        let image = SKSpriteNode(imageNamed: "botaoJogarNoVAMENTE")
+        let image = SKSpriteNode(imageNamed: "botaoJogarNovamente")
         image.setScale(0.4)
         
         let button = StartButton(image: image) {
@@ -42,8 +37,6 @@ class WinScene: SKScene {
             }
         }
         button.position = CGPoint(x: 430, y: 185)
-        
-        button.position = CGPoint(x: 425, y: 185)
         addChild(button)
     }
     
@@ -59,11 +52,7 @@ class WinScene: SKScene {
                 self.view?.presentScene(mainVC!, transition: transition)
             }
         }
-        image.setScale(0.40)
-        
         button.position = CGPoint(x: 430, y: 105)
-        
-        button.position = CGPoint(x: 425, y: 105)
         addChild(button)
     }
 }

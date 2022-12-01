@@ -129,7 +129,6 @@
 			children = (
 				4EA63F88291ECE4200872D40 /* GameScene.sks */,
 				4EA63FA3291ED1BE00872D40 /* MainScene.sks */,
-				6B30291E2937FA420043E298 /* TutorialScene2.swift */,
 				D172E96929379FBA00F64874 /* LoseScene.swift */,
 				4E6C12342934F6EE004FDBAF /* WinScene.swift */,
 				4EA63F8C291ECE4200872D40 /* GameScene.swift */,
@@ -404,7 +403,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PHVL4RZ8Z5;
+				DEVELOPMENT_TEAM = 44KS7C4RJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -438,7 +437,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PHVL4RZ8Z5;
+				DEVELOPMENT_TEAM = 44KS7C4RJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

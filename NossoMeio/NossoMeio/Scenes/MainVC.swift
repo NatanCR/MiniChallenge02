@@ -17,7 +17,7 @@ class MainVC: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        background.scale(to: scene!.size)
+//        background.scale(to: scene!.size)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
