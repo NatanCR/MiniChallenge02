@@ -37,7 +37,7 @@ class WinScene: SKScene {
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 430, y: 185)
+        button.position = CGPoint(x: 435, y: 185)
         addChild(button)
     }
     
@@ -53,7 +53,7 @@ class WinScene: SKScene {
                 self.view?.presentScene(mainVC!, transition: transition)
             }
         }
-        button.position = CGPoint(x: 430, y: 105)
+        button.position = CGPoint(x: 435, y: 105)
         addChild(button)
     }
 }
