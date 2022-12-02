@@ -32,6 +32,7 @@
 		D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D172E96C2937DDD700F64874 /* Assets.xcassets */; };
 		D172E970293A662300F64874 /* happy-children.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D172E96F293A662300F64874 /* happy-children.mp3 */; };
 		D172E972293A66C800F64874 /* Copyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E971293A66C800F64874 /* Copyright.swift */; };
+		D172E979293A7C9600F64874 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D172E97B293A7C9600F64874 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +50,7 @@
 		4EA63F8A291ECE4200872D40 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		4EA63F8C291ECE4200872D40 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4EA63F8E291ECE4200872D40 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		4EA63F91291ECE4200872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EA63F93291ECE4400872D40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4EA63F96291ECE4400872D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EA63FA3291ED1BE00872D40 /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		4EA63FA5291ED64000872D40 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		6B30291E2937FA420043E298 /* TutorialScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene2.swift; sourceTree = "<group>"; };
@@ -61,6 +60,11 @@
 		D172E96C2937DDD700F64874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
 		D172E96F293A662300F64874 /* happy-children.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "happy-children.mp3"; sourceTree = "<group>"; };
 		D172E971293A66C800F64874 /* Copyright.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
+		D172E973293A7B5700F64874 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		D172E974293A7B5700F64874 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D172E975293A7C5D00F64874 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		D172E976293A7C5E00F64874 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		D172E97A293A7C9600F64874 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		4EA63F85291ECE4100872D40 /* NossoMeio */ = {
 			isa = PBXGroup;
 			children = (
+				D172E97B293A7C9600F64874 /* Localizable.strings */,
 				D172E96F293A662300F64874 /* happy-children.mp3 */,
 				4E08F19B29364A3600AED444 /* cheeringSound.mp3 */,
 				4E842FFB29366B4800CD76EE /* wrongSound.mp3 */,
@@ -203,7 +208,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"pt-BR",
 			);
 			mainGroup = 4EA63F7A291ECE4100872D40;
 			productRefGroup = 4EA63F84291ECE4100872D40 /* Products */;
@@ -221,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA63F92291ECE4200872D40 /* Main.storyboard in Resources */,
+				D172E979293A7C9600F64874 /* Localizable.strings in Resources */,
 				4EA63F89291ECE4200872D40 /* GameScene.sks in Resources */,
 				4EA63F94291ECE4400872D40 /* Assets.xcassets in Resources */,
 				4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */,
@@ -264,7 +270,8 @@
 		4EA63F90291ECE4200872D40 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4EA63F91291ECE4200872D40 /* Base */,
+				D172E973293A7B5700F64874 /* pt-BR */,
+				D172E975293A7C5D00F64874 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -272,9 +279,18 @@
 		4EA63F95291ECE4400872D40 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4EA63F96291ECE4400872D40 /* Base */,
+				D172E974293A7B5700F64874 /* pt-BR */,
+				D172E976293A7C5E00F64874 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D172E97B293A7C9600F64874 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D172E97A293A7C9600F64874 /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -284,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -345,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -405,6 +423,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44KS7C4RJ4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -439,6 +458,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44KS7C4RJ4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Tero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
