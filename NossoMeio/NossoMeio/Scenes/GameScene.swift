@@ -23,11 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        //posição da ancora na tela
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        //limite de gravidade na tela
-        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
 
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
@@ -36,7 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameCreators.createBackground()
         self.addChild(gameCreators)
         self.addChild(displayBackgroundSound())
-        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -61,7 +56,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     displayBackgroundSound().run(SKAction.stop())
                 }
             }
-            
             
         } else if contacting == gameCreators.trashCategory | gameCreators.organicCategory {
             run(soundWrong)
@@ -102,13 +96,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     
     func displayBackgroundSound() -> SKAudioNode {
-        let backgroundSound = SKAudioNode(fileNamed: "LovableClownSit.mp3")
-        let backgroundSound2 = SKAudioNode(fileNamed: "AfterSchoolJamboree.mp3")
+        let backgroundSound = SKAudioNode(fileNamed: "happy-children")
         let randomRange = Int.random(in: 0...1)
         if randomRange == 0 {
             return backgroundSound
         } else {
-            return backgroundSound2
+            return backgroundSound
         }
     }
     

@@ -15,8 +15,6 @@
 		4E6C12352934F6EE004FDBAF /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C12342934F6EE004FDBAF /* WinScene.swift */; };
 		4E6C12372934FFE0004FDBAF /* HeartObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C12362934FFE0004FDBAF /* HeartObject.swift */; };
 		4E842FFC29366B4800CD76EE /* wrongSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E842FFB29366B4800CD76EE /* wrongSound.mp3 */; };
-		4E842FFE293670CD00CD76EE /* LovableClownSit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E842FFD293670CD00CD76EE /* LovableClownSit.mp3 */; };
-		4E8430002936711200CD76EE /* AfterSchoolJamboree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E842FFF2936711200CD76EE /* AfterSchoolJamboree.mp3 */; };
 		4EA63F87291ECE4100872D40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA63F86291ECE4100872D40 /* AppDelegate.swift */; };
 		4EA63F89291ECE4200872D40 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F88291ECE4200872D40 /* GameScene.sks */; };
 		4EA63F8B291ECE4200872D40 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EA63F8A291ECE4200872D40 /* Actions.sks */; };
@@ -32,6 +30,8 @@
 		D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E96929379FBA00F64874 /* LoseScene.swift */; };
 		D172E96D2937DDD700F64874 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = D172E96B2937DDD700F64874 /* spark.sks */; };
 		D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D172E96C2937DDD700F64874 /* Assets.xcassets */; };
+		D172E970293A662300F64874 /* happy-children.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D172E96F293A662300F64874 /* happy-children.mp3 */; };
+		D172E972293A66C800F64874 /* Copyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E971293A66C800F64874 /* Copyright.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +43,6 @@
 		4E6C12342934F6EE004FDBAF /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
 		4E6C12362934FFE0004FDBAF /* HeartObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartObject.swift; sourceTree = "<group>"; };
 		4E842FFB29366B4800CD76EE /* wrongSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongSound.mp3; sourceTree = "<group>"; };
-		4E842FFD293670CD00CD76EE /* LovableClownSit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LovableClownSit.mp3; sourceTree = "<group>"; };
-		4E842FFF2936711200CD76EE /* AfterSchoolJamboree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AfterSchoolJamboree.mp3; sourceTree = "<group>"; };
 		4EA63F83291ECE4100872D40 /* NossoMeio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NossoMeio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA63F86291ECE4100872D40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EA63F88291ECE4200872D40 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		D172E96929379FBA00F64874 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		D172E96B2937DDD700F64874 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 		D172E96C2937DDD700F64874 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
+		D172E96F293A662300F64874 /* happy-children.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "happy-children.mp3"; sourceTree = "<group>"; };
+		D172E971293A66C800F64874 /* Copyright.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +111,9 @@
 		4EA63F85291ECE4100872D40 /* NossoMeio */ = {
 			isa = PBXGroup;
 			children = (
+				D172E96F293A662300F64874 /* happy-children.mp3 */,
 				4E08F19B29364A3600AED444 /* cheeringSound.mp3 */,
 				4E842FFB29366B4800CD76EE /* wrongSound.mp3 */,
-				4E842FFD293670CD00CD76EE /* LovableClownSit.mp3 */,
-				4E842FFF2936711200CD76EE /* AfterSchoolJamboree.mp3 */,
 				4EA63FA2291ECF4700872D40 /* Resources */,
 				4EA63F9F291ECF0100872D40 /* Scenes */,
 				4EA63FA1291ECF1E00872D40 /* Controllers */,
@@ -129,6 +128,7 @@
 			children = (
 				4EA63F88291ECE4200872D40 /* GameScene.sks */,
 				4EA63FA3291ED1BE00872D40 /* MainScene.sks */,
+				D172E971293A66C800F64874 /* Copyright.swift */,
 				D172E96929379FBA00F64874 /* LoseScene.swift */,
 				4E6C12342934F6EE004FDBAF /* WinScene.swift */,
 				4EA63F8C291ECE4200872D40 /* GameScene.swift */,
@@ -224,14 +224,13 @@
 				4EA63F89291ECE4200872D40 /* GameScene.sks in Resources */,
 				4EA63F94291ECE4400872D40 /* Assets.xcassets in Resources */,
 				4EA63F97291ECE4400872D40 /* LaunchScreen.storyboard in Resources */,
-				4E8430002936711200CD76EE /* AfterSchoolJamboree.mp3 in Resources */,
 				4EA63F8B291ECE4200872D40 /* Actions.sks in Resources */,
 				D172E96D2937DDD700F64874 /* spark.sks in Resources */,
 				4E08F19D29364A3600AED444 /* cheeringSound.mp3 in Resources */,
 				4E842FFC29366B4800CD76EE /* wrongSound.mp3 in Resources */,
 				4EA63FA4291ED1BE00872D40 /* MainScene.sks in Resources */,
 				D172E96E2937DDD700F64874 /* Assets.xcassets in Resources */,
-				4E842FFE293670CD00CD76EE /* LovableClownSit.mp3 in Resources */,
+				D172E970293A662300F64874 /* happy-children.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +252,7 @@
 				6B30291F2937FA420043E298 /* TutorialScene2.swift in Sources */,
 				4E6C12332934F3B8004FDBAF /* GameCreators.swift in Sources */,
 				D172E96A29379FBA00F64874 /* LoseScene.swift in Sources */,
+				D172E972293A66C800F64874 /* Copyright.swift in Sources */,
 				4E05CB9629292ED7008E017A /* StartButton.swift in Sources */,
 				4E05CB99292ACA65008E017A /* JunkObject.swift in Sources */,
 			);

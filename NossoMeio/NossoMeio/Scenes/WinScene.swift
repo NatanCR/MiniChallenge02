@@ -31,7 +31,8 @@ class WinScene: SKScene {
         let button = StartButton(image: image) {
         } actionEnded: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let transition = SKTransition.moveIn(with: .right, duration: 0.3)
+//                let transition = SKTransition.moveIn(with: .right, duration: 0.3)
+                let transition = SKTransition.crossFade(withDuration: 0.8)
                 let gameScene = GameScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: transition)
             }

@@ -52,6 +52,7 @@ class GameCreators: SKNode {
     
     func changeHearts() {
         let changeTexture = SKAction.setTexture(SKTexture(imageNamed: "coracaoCinza"))
+        
         for i in 0...2 {
             if heartArray[i].isActive == true {
                 heartArray[i].setTexture(heart: changeTexture)

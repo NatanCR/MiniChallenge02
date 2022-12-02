@@ -10,10 +10,12 @@ import SpriteKit
 class MainVC: SKScene {
     var button: SKSpriteNode!
     var background: SKSpriteNode!
+    var copyButton: SKSpriteNode!
     
     override func sceneDidLoad() {
         button = self.childNode(withName: "botaoJogar") as? SKSpriteNode
         background = self.childNode(withName: "background") as? SKSpriteNode
+        copyButton = self.childNode(withName: "copy") as? SKSpriteNode
     }
     
     override func didMove(to view: SKView) {
@@ -26,6 +28,15 @@ class MainVC: SKScene {
             let nodesArray = self.nodes(at: location)
             if nodesArray.first == button {
                 buttonPressed()
+            }
+        }
+        
+        if let location2 = touch?.location(in: self) {
+            let nodesArray = self.nodes(at: location2)
+            if nodesArray.first == copyButton {
+                let transition = SKTransition.crossFade(withDuration: 0.2)
+                let tutorialScene = Copyright(size: self.size)
+                self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
     }

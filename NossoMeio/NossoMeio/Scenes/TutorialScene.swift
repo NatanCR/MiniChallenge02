@@ -29,7 +29,8 @@ class TutorialScene: SKScene {
         let button = StartButton(image: image) {
         } actionEnded: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let transition = SKTransition.reveal(with: .left, duration: 0.8)
+//                let transition = SKTransition.reveal(with: .left, duration: 0.8)
+                let transition = SKTransition.crossFade(withDuration: 0.8)
                 let tutorialScene2 = TutorialScene2(size: self.size)
                 self.view?.presentScene(tutorialScene2, transition: transition)
             }
