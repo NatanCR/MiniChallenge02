@@ -40,7 +40,7 @@ class LoseScene: SKScene {
         }
         image.setScale(0.4)
         
-        button.position = CGPoint(x: 430, y: 185)
+        button.position = CGPoint(x: 330, y: 160)
         
         addChild(button)
     }
@@ -57,7 +57,7 @@ class LoseScene: SKScene {
             }
         }
         image.setScale(0.4)
-        button.position = CGPoint(x: 430, y: 105)
+        button.position = CGPoint(x: 330, y: 80)
         addChild(button)
     }
 }

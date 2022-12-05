@@ -22,6 +22,7 @@ class StartButton: SKNode {
         //pode receber interação com o usuário
         self.isUserInteractionEnabled = true
         self.addChild(image)
+        self.image?.anchorPoint = CGPoint(x: 0, y: 0)
     }
     
     //inicializador para ajudar a criar o botao pela cena

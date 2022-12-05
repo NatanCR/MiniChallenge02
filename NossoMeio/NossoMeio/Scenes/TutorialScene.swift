@@ -36,7 +36,8 @@ class TutorialScene: SKScene {
             }
         }
         //x 405, y 185 fica no meio da tela
-        button.position = CGPoint(x: 705, y: 185)
+    
+        button.position = CGPoint(x: 580, y: 185)
         addChild(button)
     }
 }
