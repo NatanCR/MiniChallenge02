@@ -36,9 +36,8 @@ class JunkObject: SKNode {
         
         self.junk = SKSpriteNode(imageNamed: image)
 //        self.junk.size = CGSize(width: 0.08, height: 0.14)
-//        self.junk.scale(to: CGSize(width: 0.08, height: 0.14))
-        self.junk.setScale(0.0008)
 //        self.junk.aspectFillToSize(fillSize: junk.size)
+        self.junk.setScale(0.0008)
         self.junk.zPosition = 1
         self.junk.position = positionPoint
         self.junk.physicsBody = body
