@@ -96,6 +96,7 @@ class GameCreators: SKNode {
                 finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 
                 finalJunkArray[i].name = "objeto-\(i)"
+                finalJunkArray[i].zPosition = 1
                 
                 finalJunkArray[i].setActionMoved(action: .touch) { touches in
                     for touch in touches {
@@ -211,7 +212,8 @@ class GameCreators: SKNode {
     }
     
     func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(rectangleOf: CGSize(width: 0.035, height: 0.08))
+//        body = SKPhysicsBody(rectangleOf: CGSize(width: 0.035, height: 0.08))
+        body = SKPhysicsBody(circleOfRadius: 0.08, center: CGPoint(x: 0, y: 0.09))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

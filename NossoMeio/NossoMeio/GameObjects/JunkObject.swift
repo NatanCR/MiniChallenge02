@@ -35,7 +35,10 @@ class JunkObject: SKNode {
         self.isUserInteractionEnabled = true
         
         self.junk = SKSpriteNode(imageNamed: image)
+//        self.junk.size = CGSize(width: 0.08, height: 0.14)
+//        self.junk.scale(to: CGSize(width: 0.08, height: 0.14))
         self.junk.setScale(0.0008)
+//        self.junk.aspectFillToSize(fillSize: junk.size)
         self.junk.zPosition = 1
         self.junk.position = positionPoint
         self.junk.physicsBody = body
@@ -57,7 +60,7 @@ class JunkObject: SKNode {
             self.actionTouch = action
         }
     }
-
+    
     func setTypeJunk(junkType type: JunkType) {
         self.junkType = type
     }
@@ -65,16 +68,31 @@ class JunkObject: SKNode {
     func setPosition(positionPoint point: CGPoint) {
         self.junk.position = point
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.actionTouch?(touches)
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.actionMoved?(touches)
     }
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.actionEndMoved?(touches)
+    }
+}
+
+extension SKSpriteNode {
+    func aspectFillToSize(fillSize: CGSize) {
+        if let texture = self.texture {
+            self.size = texture.size()
+            
+            let verticalRatio = fillSize.height / self.texture!.size().height
+            let horizontalRatio = fillSize.width /  self.texture!.size().width
+            
+            let scaleRatio = horizontalRatio > verticalRatio ? horizontalRatio : verticalRatio
+            
+            self.setScale(scaleRatio)
+        }
     }
 }

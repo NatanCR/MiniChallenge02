@@ -43,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             setEmitter()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                contact.bodyB.node?.removeFromParent()
+                contact.bodyA.node?.removeFromParent()
                 self.run(self.soundRight)
             }
             
