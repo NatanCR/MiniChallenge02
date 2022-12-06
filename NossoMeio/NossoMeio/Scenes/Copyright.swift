@@ -61,7 +61,7 @@ class Copyright: SKScene {
                 self.view?.presentScene(mainVC!, transition: transition)
             }
         }
-        button.position = CGPoint(x: 400, y: 80)
+        button.position = CGPoint(x: 330, y: 80)
         addChild(button)
     }
 }

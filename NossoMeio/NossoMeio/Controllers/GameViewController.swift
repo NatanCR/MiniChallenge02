@@ -15,18 +15,13 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let view = self.view as! SKView
-            // Load the SKScene from 'GameScene.sks'
 //            if let scene = SKScene(fileNamed: "MainScene") {
             let scene = MainVC.init(fileNamed: "MainScene")
                 // Set the scale mode to scale to fit the window
                 scene?.scaleMode = .aspectFit
-                // Present the scene
                 view.presentScene(scene)
-//            }
             
-        
-        
-    }
+        }
 
     override var shouldAutorotate: Bool {
         return true
