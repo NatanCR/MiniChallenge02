@@ -11,7 +11,7 @@ import SpriteKit
 class GameCreators: SKNode {
     
     private var body = SKPhysicsBody()
-    private let x_points = [100, 200, 300, 400, 500, 600, 700]
+    private let x_points = [-0.4, -0.26, -0.13, 0, 0.13, 0.26, 0.4]
     private var heartArray = [HeartObject]()
     let trashCategory: UInt32 = 1
     let plasticCategory: UInt32 = 2
@@ -26,16 +26,18 @@ class GameCreators: SKNode {
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "fundo")
         let background = SKSpriteNode(texture: backgroundTexture)
-        background.zPosition = -30
-        background.anchorPoint = CGPoint.zero
-        addChild(background)
+        background.zPosition = -3
+        background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        background.scale(to: CGSize(width: 1, height: 1))
+        self.addChild(background)
     }
     
     func createGround() {
         let groundTexture = SKTexture(imageNamed: "chao")
         let ground = SKSpriteNode(texture: groundTexture)
-        ground.position = CGPoint(x: 0, y: -25)
-        ground.zPosition = -10
+        ground.position = CGPoint(x: 0, y: -0.4)
+        ground.setScale(0.0017)
+        ground.zPosition = -1
         addChild(ground)
     }
     
@@ -44,7 +46,8 @@ class GameCreators: SKNode {
             let heartObj = HeartObject()
             heartArray.append(heartObj)
             heartArray[i].name = "coracao\(i)"
-            heartArray[i].setPosition(heart: 750-(CGFloat((2-i))*40))
+            heartArray[i].zPosition = 0
+            heartArray[i].setPosition(heart: 0.3-(CGFloat((0.1-Double(i)))*0.05))
             heartCounter += 1
             self.addChild(heartArray[i])
         }
@@ -88,7 +91,7 @@ class GameCreators: SKNode {
                 } while positions_x[randomRange] != nil
                 
                 positions_x[randomRange] = randomRange
-                randomPositions = CGPoint(x: x_points[randomRange], y: 70)
+                randomPositions = CGPoint(x: x_points[randomRange], y: -0.3)
                 
                 finalJunkArray[i].setPosition(positionPoint: randomPositions)
                 
@@ -107,7 +110,6 @@ class GameCreators: SKNode {
                     for touch in touches {
                         let touchLocation = touch.location(in: self)
                         finalJunkArray[i].setPosition(positionPoint: touchLocation)
-                        
                     }
                 }
                 
@@ -117,7 +119,6 @@ class GameCreators: SKNode {
                         finalJunkArray[i].setPosition(positionPoint: value)
                     }
                 }
-                
                 self.addChild(finalJunkArray[i])
             }
     }
@@ -125,9 +126,10 @@ class GameCreators: SKNode {
     
     func createTrash() {
         let trash = SKSpriteNode(imageNamed: "lixeira")
-        trash.position = CGPoint(x: 400, y: 220)
-        trash.setScale(0.35)
-        trash.zPosition = -20
+        trash.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        trash.position = CGPoint(x: 0, y: 0.09)
+        trash.scale(to: CGSize(width: 0.22, height: 0.6))
+        trash.zPosition = -2
         trash.physicsBody = createTrashPhysicsBody(trash: trash)
         self.addChild(trash)
     }
@@ -146,7 +148,7 @@ class GameCreators: SKNode {
             } while positions_x[randomRange] != nil
             
             positions_x[randomRange] = randomRange
-            randomPositions = CGPoint(x: x_points[randomRange], y: 70)
+            randomPositions = CGPoint(x: x_points[randomRange], y: 0.4)
             
             let junkObj = JunkObject(image: arrayImagePlastic[i], positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
             
@@ -172,7 +174,7 @@ class GameCreators: SKNode {
             } while positions_x[randomRange] != nil
             
             positions_x[randomRange] = randomRange
-            randomPositions = CGPoint(x: x_points[randomRange], y: 70)
+            randomPositions = CGPoint(x: x_points[randomRange], y: 0.4)
             
             let junkObj = JunkObject(image: arrayImageOrganic[i], positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
             
@@ -184,7 +186,7 @@ class GameCreators: SKNode {
     }
     
     func createJunkPhysicsBody(type: JunkObject.JunkType) -> SKPhysicsBody {
-        body = SKPhysicsBody(rectangleOf: CGSize(width: 5, height: 5)) //corpo a partir de uma forma
+        body = SKPhysicsBody(rectangleOf: CGSize(width: 0.08, height: 0.08)) //corpo a partir de uma forma
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = true
@@ -209,7 +211,7 @@ class GameCreators: SKNode {
     }
     
     func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(rectangleOf: trash.size)
+        body = SKPhysicsBody(rectangleOf: CGSize(width: 0.035, height: 0.08))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

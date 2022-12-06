@@ -35,7 +35,8 @@ class JunkObject: SKNode {
         self.isUserInteractionEnabled = true
         
         self.junk = SKSpriteNode(imageNamed: image)
-        self.junk.setScale(0.5)
+        self.junk.setScale(0.0008)
+        self.junk.zPosition = 1
         self.junk.position = positionPoint
         self.junk.physicsBody = body
         self.addChild(junk)

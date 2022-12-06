@@ -11,14 +11,14 @@ class WinScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "telaParabens")
         background.anchorPoint = self.anchorPoint
-        background.scale(to: scene!.size)
+        background.scale(to: CGSize(width: 1, height: 1))
         background.zPosition = -1
         self.addChild(background)
     }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.anchorPoint = CGPoint(x: 0, y: 0)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         playAgainButton()
         homeButton()
@@ -26,7 +26,7 @@ class WinScene: SKScene {
     
     func playAgainButton() {
         let image = SKSpriteNode(imageNamed: "botaoJogarNovamente")
-        image.setScale(0.4)
+        image.size = CGSize(width: 0.2, height: 0.15)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -36,23 +36,23 @@ class WinScene: SKScene {
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 330, y: 160)
+        button.position = CGPoint(x: 0.025, y: 0)
         addChild(button)
     }
     
     func homeButton() {
         let image = SKSpriteNode(imageNamed: "botaoTelaIncial")
-        image.setScale(0.4)
+        image.size = CGSize(width: 0.2, height: 0.15)
         
         let button = StartButton(image: image) {
         } actionEnded: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let transition = SKTransition.moveIn(with: .right, duration: 0.3)
-                let mainVC = MainVC(fileNamed: "MainScene")
-                self.view?.presentScene(mainVC!, transition: transition)
+                let startScene = StartScene(size: self.size)
+                self.view?.presentScene(startScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 330, y: 80)
+        button.position = CGPoint(x: 0.025, y: -0.2)
         addChild(button)
     }
 }

@@ -18,12 +18,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        self.backgroundColor = SKColor.brown
         self.physicsWorld.contactDelegate = self
     }
     
     override func didMove(to view: SKView) {
-        self.anchorPoint = CGPoint(x: 0, y: 0)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
@@ -89,9 +88,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setEmitter() {
             particleEmitter = SKEmitterNode(fileNamed: "spark")
-            particleEmitter.position.x = 380
-            particleEmitter.position.y = 245
-            particleEmitter.zPosition = -21
+            particleEmitter.position.x = 0
+            particleEmitter.position.y = 0.06
+            particleEmitter.zPosition = -3
             self.addChild(particleEmitter)
         }
     

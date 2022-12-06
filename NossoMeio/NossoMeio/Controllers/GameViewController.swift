@@ -10,23 +10,23 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let view = self.view as! SKView
-//            if let scene = SKScene(fileNamed: "MainScene") {
-            let scene = MainVC.init(fileNamed: "MainScene")
-                // Set the scale mode to scale to fit the window
-                scene?.scaleMode = .aspectFit
-                view.presentScene(scene)
-            
-        }
-
+        //            if let scene = SKScene(fileNamed: "MainScene") {
+        //            let scene = MainVC.init(fileNamed: "MainScene")
+        let scene = StartScene()
+        // Set the scale mode to scale to fit the window
+        scene.scaleMode = .aspectFill
+        view.presentScene(scene)
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
