@@ -22,7 +22,7 @@ class GameCreators: SKNode {
     var junkCounter = 0
     var isActive = false
     var heartCounter = 0
-    
+        
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "fundo")
         let background = SKSpriteNode(texture: backgroundTexture)
@@ -205,7 +205,7 @@ class GameCreators: SKNode {
     }
     
     func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(circleOfRadius: 100, center: CGPoint(x: 0, y: 200))
+        body = SKPhysicsBody(circleOfRadius: 200, center: CGPoint(x: 0, y: 150))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

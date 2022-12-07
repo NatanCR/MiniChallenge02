@@ -24,6 +24,7 @@ class StartScene: SKScene {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.scaleMode = .aspectFill
         startButton()
+        createCopyButton()
     }
     
     func startButton() {
@@ -41,5 +42,21 @@ class StartScene: SKScene {
         button.position = CGPoint(x: 230, y: -100)
         button.zPosition = 2
         self.addChild(button)
+    }
+    
+    func createCopyButton() {
+        let image = UIImage(systemName: "info.circle")
+        let texture = SKTexture(image: image!)
+        let sprite = StartButton(image: SKSpriteNode(texture: texture)) {
+        } actionEnded: {
+            let transition = SKTransition.crossFade(withDuration: 0.8)
+            let copy = Copyright(size: self.size)
+            self.view?.presentScene(copy, transition: transition)
+        }
+        
+        sprite.setScale(4)
+        sprite.position = CGPoint(x: 750, y: -370)
+        sprite.zPosition = 1
+        self.addChild(sprite)
     }
 }

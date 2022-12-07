@@ -27,7 +27,7 @@ class WinScene: SKScene {
     
     func playAgainButton() {
         let image = SKSpriteNode(imageNamed: "botaoJogarNovamente")
-        image.size = CGSize(width: 0.2, height: 0.15)
+        image.setScale(0.9)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -37,13 +37,13 @@ class WinScene: SKScene {
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 0.025, y: 0)
+        button.position = CGPoint(x: 80, y: 0)
         addChild(button)
     }
     
     func homeButton() {
         let image = SKSpriteNode(imageNamed: "botaoTelaIncial")
-        image.size = CGSize(width: 0.2, height: 0.15)
+        image.setScale(0.9)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -53,7 +53,7 @@ class WinScene: SKScene {
                 self.view?.presentScene(startScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 0.025, y: -0.2)
+        button.position = CGPoint(x: 80, y: -200)
         addChild(button)
     }
 }

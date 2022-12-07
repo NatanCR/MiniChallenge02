@@ -11,7 +11,7 @@ class Copyright: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.size = CGSize(width: 1920, height: 1080)
-        self.anchorPoint = CGPoint(x: 0, y: 0)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         backButton()
         createCopy()
     }
@@ -32,7 +32,7 @@ class Copyright: SKScene {
                     Creative Commons CC BY 3.0
                     https://creativecommons.org/licenses/by/3.0/
                     """
-        text.position = CGPoint(x: 0, y: 150)
+        text.position = CGPoint(x: 0, y: 0)
         text.fontSize = 30
         text.fontColor = SKColor(ciColor: .black)
         text.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -62,7 +62,7 @@ class Copyright: SKScene {
                 self.view?.presentScene(startScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 330, y: 80)
+        button.position = CGPoint(x: 0, y: -250)
         addChild(button)
     }
 }

@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.view?.showsPhysics = true
+//        self.view?.showsPhysics = true
         
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
             gameCreators.junkCounter -= 1
-//            setEmitter()
+            setEmitter()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 contact.bodyA.node?.removeFromParent()
@@ -90,9 +90,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setEmitter() {
             particleEmitter = SKEmitterNode(fileNamed: "spark")
-            particleEmitter.position.x = 0
-            particleEmitter.position.y = 0.06
-            particleEmitter.zPosition = -3
+        particleEmitter.position.x = 0
+        particleEmitter.position.y = 245
+        particleEmitter.setScale(2.5)
+        particleEmitter.zPosition = -3
             self.addChild(particleEmitter)
         }
     
