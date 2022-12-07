@@ -212,7 +212,7 @@ class GameCreators: SKNode {
     }
     
     func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(circleOfRadius: 0.06, center: CGPoint(x: 0, y: 0.09))
+        body = SKPhysicsBody(circleOfRadius: 0.055, center: CGPoint(x: 0, y: 0.09))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

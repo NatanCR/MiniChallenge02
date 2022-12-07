@@ -13,6 +13,7 @@ class MainVC: SKScene {
     var copyButton: SKSpriteNode!
     
     override func sceneDidLoad() {
+                
         self.anchorPoint = CGPoint(x: 0, y: 0)
         button = self.childNode(withName: "botaoJogar") as? SKSpriteNode
         background = self.childNode(withName: "background") as? SKSpriteNode

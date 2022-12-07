@@ -15,6 +15,7 @@ class StartScene: SKScene {
         background.scale(to: CGSize(width: 1, height: 0.5))
         background.zPosition = 0
         self.addChild(background)
+   
     }
     
     override func sceneDidLoad() {
