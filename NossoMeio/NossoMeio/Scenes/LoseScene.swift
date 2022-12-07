@@ -29,7 +29,7 @@ class LoseScene: SKScene {
     
     func tryAgainButton() {
         let image = SKSpriteNode(imageNamed: "botaoTentarNovamente")
-        image.setScale(0.9)
+        image.setScale(1)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -40,13 +40,13 @@ class LoseScene: SKScene {
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 60, y: 0)
+        button.position = CGPoint(x: 50, y: 0)
         addChild(button)
     }
     
     func homeButton() {
         let image = SKSpriteNode(imageNamed: "botaoTelaIncial")
-        image.setScale(0.9)
+        image.setScale(1)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -56,7 +56,7 @@ class LoseScene: SKScene {
                 self.view?.presentScene(startScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 60, y: -200)
+        button.position = CGPoint(x: 50, y: -200)
         addChild(button)
     }
 }
