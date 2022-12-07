@@ -153,11 +153,8 @@ class GameCreators: SKNode {
             randomPositions = CGPoint(x: x_points[randomRange], y: -300)
             
             let junkObj = JunkObject(image: arrayImagePlastic[i], positionPoint: randomPositions, junkType: .plastic, body: createJunkPhysicsBody(type: .plastic))
-            
             plasticJunk.append(junkObj)
-            
         }
-        
         return plasticJunk
     }
     
@@ -184,7 +181,7 @@ class GameCreators: SKNode {
     }
     
     func createJunkPhysicsBody(type: JunkObject.JunkType) -> SKPhysicsBody {
-        body = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1)) //corpo a partir de uma forma
+        body = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 100)) //corpo a partir de uma forma
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = true
@@ -208,7 +205,7 @@ class GameCreators: SKNode {
     }
     
     func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(circleOfRadius: 5, center: CGPoint(x: 0, y: 250))
+        body = SKPhysicsBody(circleOfRadius: 100, center: CGPoint(x: 0, y: 200))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

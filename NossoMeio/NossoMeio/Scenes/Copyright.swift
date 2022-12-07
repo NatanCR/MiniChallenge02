@@ -32,8 +32,8 @@ class Copyright: SKScene {
                     Creative Commons CC BY 3.0
                     https://creativecommons.org/licenses/by/3.0/
                     """
-        text.position = CGPoint(x: 370, y: 150)
-        text.fontSize = 15
+        text.position = CGPoint(x: 0, y: 150)
+        text.fontSize = 30
         text.fontColor = SKColor(ciColor: .black)
         text.lineBreakMode = NSLineBreakMode.byWordWrapping
         text.numberOfLines = 0
@@ -42,8 +42,8 @@ class Copyright: SKScene {
         
         let direitoAutoral = SKLabelNode(fontNamed: "SF-Pro-Rounded")
         direitoAutoral.text = "Direitos Autorais"
-        direitoAutoral.position = CGPoint(x: 400, y: 275)
-        direitoAutoral.fontSize = 40
+        direitoAutoral.position = CGPoint(x: 0, y: 275)
+        direitoAutoral.fontSize = 70
         direitoAutoral.fontColor = SKColor(ciColor: .black)
         
         addChild(direitoAutoral)
@@ -52,7 +52,7 @@ class Copyright: SKScene {
     
     func backButton() {
         let image = SKSpriteNode(imageNamed: "botaoTelaIncial")
-        image.setScale(0.3)
+        image.setScale(0.8)
         
         let button = StartButton(image: image) {
         } actionEnded: {

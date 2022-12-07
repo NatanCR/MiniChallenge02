@@ -12,7 +12,7 @@ class LoseScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "ohNao")
         background.anchorPoint = self.anchorPoint
-        background.scale(to: CGSize(width: 1, height: 1))
+        background.scale(to: scene!.size)
         background.zPosition = -1
         self.addChild(background)
     }
