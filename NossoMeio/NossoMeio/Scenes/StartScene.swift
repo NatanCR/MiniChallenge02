@@ -12,7 +12,7 @@ class StartScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "jogar")
         background.anchorPoint = self.anchorPoint
-        background.scale(to: CGSize(width: 1, height: 0.5))
+        background.scale(to: scene!.size)
         background.zPosition = 0
         self.addChild(background)
    
@@ -20,6 +20,7 @@ class StartScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.size = CGSize(width: 1920, height: 1080)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.scaleMode = .aspectFill
         startButton()
@@ -27,7 +28,7 @@ class StartScene: SKScene {
     
     func startButton() {
         let image = SKSpriteNode(imageNamed: "botaoJogar")
-        image.setScale(0.0004)
+        image.setScale(0.8)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -37,7 +38,7 @@ class StartScene: SKScene {
                 self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 0.12, y: -0.08)
+        button.position = CGPoint(x: 230, y: -100)
         button.zPosition = 2
         self.addChild(button)
     }

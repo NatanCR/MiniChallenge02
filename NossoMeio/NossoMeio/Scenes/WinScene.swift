@@ -18,6 +18,7 @@ class WinScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.size = CGSize(width: 1920, height: 1080)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         playAgainButton()

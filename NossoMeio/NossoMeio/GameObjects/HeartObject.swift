@@ -15,9 +15,8 @@ class HeartObject: SKNode {
         super.init()
         self.heart = SKSpriteNode(imageNamed: "coracaoVermelho")
         heart.anchorPoint = CGPoint(x: 0.5, y: 1)
-//        heart.size = CGSize(width: 0.05, height: 0.07)
-        heart.scale(to: CGSize(width: 0.04, height: 0.08))
-        heart.position.y = 0.4
+        heart.setScale(1.2)
+        heart.position.y = 450
         self.addChild(heart)
     }
     

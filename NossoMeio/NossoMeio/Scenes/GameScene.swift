@@ -18,13 +18,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.size = CGSize(width: 1920, height: 1080)
         self.physicsWorld.contactDelegate = self
     }
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 //        self.view?.showsPhysics = true
-//        self.size = CGSize(width: 1920, height: 1080)
+        
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()

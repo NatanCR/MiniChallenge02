@@ -19,13 +19,14 @@ class TutorialScene2: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.size = CGSize(width: 1920, height: 1080)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         passSceneButton()
     }
     
     func passSceneButton() {
         let image = SKSpriteNode(imageNamed: "botaoComecar")
-        image.size = CGSize(width: 0.2, height: 0.15)
+        image.setScale(1)
         
         let button = StartButton(image: image) {
         } actionEnded: {
@@ -36,7 +37,7 @@ class TutorialScene2: SKScene {
             }
         }
         //x 405, y 185 fica no meio da tela
-        button.position = CGPoint(x: 0.3, y: 0)
+        button.position = CGPoint(x: 580, y: 40)
         addChild(button)
     }
     

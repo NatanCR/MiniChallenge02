@@ -10,6 +10,7 @@ import SpriteKit
 class Copyright: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.size = CGSize(width: 1920, height: 1080)
         self.anchorPoint = CGPoint(x: 0, y: 0)
         backButton()
         createCopy()
@@ -57,8 +58,8 @@ class Copyright: SKScene {
         } actionEnded: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 let transition = SKTransition.moveIn(with: .right, duration: 0.3)
-                let mainVC = MainVC(fileNamed: "MainScene")
-                self.view?.presentScene(mainVC!, transition: transition)
+                let startScene = StartScene(size: self.size)
+                self.view?.presentScene(startScene, transition: transition)
             }
         }
         button.position = CGPoint(x: 330, y: 80)
