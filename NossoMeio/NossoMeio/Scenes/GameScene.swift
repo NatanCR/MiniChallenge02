@@ -23,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
+//        self.view?.showsPhysics = true
         gameCreators.createTrash()
         gameCreators.createFinalJunkArray(gameCreators.createPlasticJunk(), gameCreators.createOrganicJunk())
         gameCreators.createHearts()
@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
             gameCreators.junkCounter -= 1
-            setEmitter()
+//            setEmitter()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 contact.bodyA.node?.removeFromParent()

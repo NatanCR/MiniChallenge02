@@ -26,7 +26,7 @@ class GameCreators: SKNode {
     func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "fundo")
         let background = SKSpriteNode(texture: backgroundTexture)
-        background.zPosition = -3
+        background.zPosition = -4
         background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         background.scale(to: CGSize(width: 1, height: 1))
         self.addChild(background)
@@ -131,7 +131,8 @@ class GameCreators: SKNode {
         trash.position = CGPoint(x: 0, y: 0.09)
         trash.scale(to: CGSize(width: 0.22, height: 0.6))
         trash.zPosition = -2
-        trash.physicsBody = createTrashPhysicsBody(trash: trash)
+        trash.physicsBody = createTrashPhysicsBody()
+        
         self.addChild(trash)
     }
     
@@ -171,18 +172,14 @@ class GameCreators: SKNode {
         for i in 0..<3 {
             repeat {
                 randomRange = Int.random(in: 0..<3)
-                
             } while positions_x[randomRange] != nil
             
             positions_x[randomRange] = randomRange
             randomPositions = CGPoint(x: x_points[randomRange], y: 0.4)
             
             let junkObj = JunkObject(image: arrayImageOrganic[i], positionPoint: randomPositions, junkType: .organic, body: createJunkPhysicsBody(type: .organic))
-            
             organicJunk.append(junkObj)
-            
         }
-        
         return organicJunk
     }
     
@@ -207,12 +204,11 @@ class GameCreators: SKNode {
         
         body.contactTestBitMask = trashCategory
         body.collisionBitMask = 0
-        
         return body
     }
     
-    func createTrashPhysicsBody(trash: SKSpriteNode) -> SKPhysicsBody {
-        body = SKPhysicsBody(circleOfRadius: 0.055, center: CGPoint(x: 0, y: 0.09))
+    func createTrashPhysicsBody() -> SKPhysicsBody {
+        body = SKPhysicsBody(circleOfRadius: 0.055, center: CGPoint(x: 0, y: 0.15))
         body.affectedByGravity = false
         body.allowsRotation = false
         body.isDynamic = false

@@ -37,7 +37,7 @@ class StartScene: SKScene {
                 self.view?.presentScene(tutorialScene, transition: transition)
             }
         }
-        button.position = CGPoint(x: 0.05, y: -0.08)
+        button.position = CGPoint(x: 0.12, y: -0.08)
         button.zPosition = 2
         self.addChild(button)
     }
