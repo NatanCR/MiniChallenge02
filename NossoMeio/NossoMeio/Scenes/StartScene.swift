@@ -12,7 +12,7 @@ class StartScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "jogar")
         background.anchorPoint = self.anchorPoint
-        background.scale(to: scene!.size)
+        background.size = CGSize(width: 1920, height: 1080)
         background.zPosition = 0
         self.addChild(background)
    

@@ -52,7 +52,7 @@ class Copyright: SKScene {
     
     func backButton() {
         let image = SKSpriteNode(imageNamed: "botaoTelaIncial")
-        image.setScale(0.8)
+        image.setScale(1)
         
         let button = StartButton(image: image) {
         } actionEnded: {
