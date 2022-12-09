@@ -8,7 +8,7 @@
 import SpriteKit
 
 class TutorialScene: SKScene {
-    let background = SKSpriteNode()
+    var background = SKSpriteNode()
     override func didMove(to view: SKView) {
         let backgroundTexture = SKTexture(imageNamed: "tutorialUm")
         background = SKSpriteNode(texture: backgroundTexture)

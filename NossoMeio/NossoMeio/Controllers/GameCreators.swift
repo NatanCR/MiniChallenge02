@@ -116,7 +116,6 @@ class GameCreators: SKNode {
                 
                 finalJunkArray[i].setActionMoved(action: .endMoved) { touches in
                     for (key, value) in arrayPositionObject {
-//                        print("key \(key) -- value \(value)")
                         finalJunkArray[i].setPosition(positionPoint: value)
                     }
                 }
