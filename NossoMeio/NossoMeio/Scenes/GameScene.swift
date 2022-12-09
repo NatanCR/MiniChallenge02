@@ -36,8 +36,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
-        
         let contacting: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if contacting == gameCreators.trashCategory | gameCreators.plasticCategory {
@@ -48,7 +46,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 contact.bodyA.node?.removeFromParent()
                 self.run(self.soundRight)
             }
-            
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [self] in
                 if gameCreators.junkCounter == 0 {

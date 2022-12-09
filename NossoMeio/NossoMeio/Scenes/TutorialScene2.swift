@@ -25,7 +25,8 @@ class TutorialScene2: SKScene {
     }
     
     func passSceneButton() {
-        let image = SKSpriteNode(imageNamed: "botaoComecar")
+        let imageTexture = SKTexture(imageNamed: "botaoComecar")
+        let image = SKSpriteNode(texture: imageTexture)
         image.setScale(1)
         
         let button = StartButton(image: image) {
@@ -36,7 +37,6 @@ class TutorialScene2: SKScene {
                 self.view?.presentScene(gameScene, transition: transition)
             }
         }
-        //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 580, y: 40)
         addChild(button)
     }

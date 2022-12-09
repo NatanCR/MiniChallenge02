@@ -8,8 +8,10 @@
 import SpriteKit
 
 class TutorialScene: SKScene {
+    let background = SKSpriteNode()
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "tutorialUm")
+        let backgroundTexture = SKTexture(imageNamed: "tutorialUm")
+        background = SKSpriteNode(texture: backgroundTexture)
         background.anchorPoint = self.anchorPoint
         background.scale(to: scene!.size)
         background.zPosition = -1
@@ -24,7 +26,9 @@ class TutorialScene: SKScene {
     }
     
     func passSceneButton() {
-        let image = SKSpriteNode(imageNamed: "seta")
+        let imageTexture = SKTexture(imageNamed: "seta")
+        let image = SKSpriteNode(texture: imageTexture)
+//        var cont = 0
         image.setScale(1)
         
         let button = StartButton(image: image) {
@@ -33,9 +37,18 @@ class TutorialScene: SKScene {
                 let transition = SKTransition.crossFade(withDuration: 0.8)
                 let tutorialScene2 = TutorialScene2(size: self.size)
                 self.view?.presentScene(tutorialScene2, transition: transition)
+                
+                //                self.background.run(SKAction.setTexture(SKTexture(imageNamed: "tutorialDois")))
+                //                image.run(SKAction.setTexture(SKTexture(imageNamed: "botaoComecar")))
+                //                cont += 1
+                //
+                //                if cont == 2 {
+                //                    let transition = SKTransition.crossFade(withDuration: 0.8)
+                //                    let gameScene = GameScene(size: self.size)
+                //                    self.view?.presentScene(gameScene, transition: transition)
+                //                }
             }
         }
-        //x 405, y 185 fica no meio da tela
         button.position = CGPoint(x: 570, y: 0)
         addChild(button)
     }
