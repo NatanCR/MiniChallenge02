@@ -1,2 +1,3 @@
 # MiniChallenge02
-copyright © Barbara Argolo, Cecília Fornazieri, Natan Rodrigues, Rebeca Primo. 
+copyright © Barbara Argolo, Cecília Fornazieri, Natan Rodrigues, Rebeca Primo - Tero
+
