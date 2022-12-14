@@ -1,2 +1,2 @@
 # MiniChallenge02
-Aplicativo desenvolvido em SpriteKit 
+copyright © Barbara Argolo, Cecília Fornazieri, Natan Rodrigues, Rebeca Primo. 
