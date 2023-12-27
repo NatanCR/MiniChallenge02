@@ -1,7 +1,7 @@
 # MiniChallenge02
-Nesse Mini Challenge proposto pela Apple Developer Academy, tinhamos livre seguimento para trabalhar no desenvolvimento do aplicativo. Então com base em nosso processo de construção criamos o aplicativo Tero, que tem como objetivo ajudar a inserir a reciclagem na educação de crianças.
+In this Mini Challenge proposed by the Apple Developer Academy, we had free rein to work on the development of the app. So, based on our construction process, we created the Tero app, which aims to help introduce recycling into children's education.
 
-Pensando em como isso poderia ser positivo para o estimulo da preservação ambiental, foi desenvolvido em jogo para abordasse um tema importante de forma lúdica. 
+Thinking about how this could be positive for encouraging environmental preservation, a game was developed to address an important issue in a playful way. 
 
 copyright © Barbara Argolo, Cecília Fornazieri, Natan Rodrigues, Rebeca Primo - Tero.
 
